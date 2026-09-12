@@ -54,22 +54,27 @@ export const CvSection: React.FC<CvSectionProps> = ({ isDarkTheme }) => {
 
             <div className="space-y-6">
               <div className="space-y-1">
-                <span className="text-[10px] font-mono opacity-60">2022 — 2026</span>
+                <span className="text-[10px] font-mono opacity-60">Bachelor's Degree</span>
                 <h4 className="text-base font-serif-luxury font-bold text-[#5C1322] dark:text-[#FAF6F0]">
-                  Bachelor of Design (B.Des)
+                  Bachelors in Fashion Designing
                 </h4>
                 <p className="text-xs font-sans-modern text-[#6E1A29] dark:text-[#D48B96] font-semibold">
-                  Fashion & Textile Design
+                  Indus University
                 </p>
                 <p className="text-xs font-sans-modern opacity-80 pt-1 leading-relaxed">
-                  Indus University, Institute of Design Environment & Architecture (IDEA), Ahmedabad, Gujarat.
+                  Overall: 9 CGPA <br/>
+                  Minor: Sustainable Studies (9 grade)
                 </p>
               </div>
 
               <div className="pt-4 border-t border-current/10 space-y-1">
-                <span className="text-[10px] font-mono opacity-60">Focus Areas</span>
+                <span className="text-[10px] font-mono opacity-60">2021 — 2023</span>
+                <h4 className="text-sm font-serif-luxury font-bold text-[#5C1322] dark:text-[#FAF6F0]">
+                  Amicus International School
+                </h4>
                 <p className="text-xs font-sans-modern opacity-85 leading-relaxed">
-                  Architectural Tailoring, Heritage Textile Revival, Zero-Waste Pattern Engineering, CLO3D Digital Prototyping.
+                  Standard 11th & 12th (Secondary) <br/>
+                  Achieved: 80% in 12th
                 </p>
               </div>
             </div>
@@ -89,10 +94,10 @@ export const CvSection: React.FC<CvSectionProps> = ({ isDarkTheme }) => {
             <div className="space-y-4 text-xs font-sans-modern">
               <div className="space-y-1.5">
                 <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">
-                  Digital Prototyping & CAD
+                  Digital Tools & Software
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  {['CLO3D', 'Adobe Illustrator', 'Photoshop', 'Pattern Vectors', 'Three.js Virtual'].map((skill, i) => (
+                  {['Procreate', 'Illustrator', 'Photoshop', 'Canva', 'Microsoft Office'].map((skill, i) => (
                     <span 
                       key={i} 
                       className={`px-2.5 py-1 rounded-md border text-[10px] ${
@@ -107,10 +112,10 @@ export const CvSection: React.FC<CvSectionProps> = ({ isDarkTheme }) => {
 
               <div className="space-y-1.5 pt-2">
                 <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">
-                  Couture Construction
+                  Core Competencies
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  {['Bespoke Draping', 'Horsehair Pad-Stitching', 'Spiral Boning', 'Origami Pleating', 'French Seaming'].map((skill, i) => (
+                  {['Draping', 'Pattern Making', 'Embroidery', 'Hardworking', 'Quick Learner'].map((skill, i) => (
                     <span 
                       key={i} 
                       className={`px-2.5 py-1 rounded-md border text-[10px] ${
@@ -125,10 +130,10 @@ export const CvSection: React.FC<CvSectionProps> = ({ isDarkTheme }) => {
 
               <div className="space-y-1.5 pt-2">
                 <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">
-                  Heritage Craft Lineages
+                  Languages
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  {['Double-Ikat Patola', 'Bandhani Micro-Tying', 'Zardozi Gold Couching', 'Deadstock Mosaic'].map((skill, i) => (
+                  {['Gujarati', 'Hindi', 'English'].map((skill, i) => (
                     <span 
                       key={i} 
                       className={`px-2.5 py-1 rounded-md border text-[10px] ${
@@ -143,40 +148,48 @@ export const CvSection: React.FC<CvSectionProps> = ({ isDarkTheme }) => {
             </div>
           </div>
 
-          {/* Column 3: Exhibitions & Honors */}
+          {/* Column 3: Workshops & Interests */}
           <div className={`p-8 rounded-3xl border space-y-6 ${
             isDarkTheme ? 'bg-[#280D1A]/90 border-[#6E1A29]/40' : 'bg-[#FCFAF7] border-[#DCD0BF]'
           }`}>
             <div className="flex items-center space-x-3 text-[#6E1A29] dark:text-[#D48B96]">
               <Award className="w-5 h-5" />
               <h3 className="text-sm font-sans-modern tracking-[0.2em] uppercase font-bold text-current">
-                Exhibitions & Honors
+                Workshops & Interests
               </h3>
             </div>
 
             <div className="space-y-4 text-xs font-sans-modern">
-              <div className="space-y-1 border-b border-current/10 pb-3">
-                <div className="flex justify-between items-center">
-                  <span className="font-bold font-serif-luxury text-[#5C1322] dark:text-[#FAF6F0]">The Monolith & Mulmul</span>
-                  <span className="text-[10px] font-mono opacity-50">2026</span>
-                </div>
-                <p className="opacity-75 text-[11px]">Solo Graduate Capsule Exhibition, IDEA Gallery, Ahmedabad</p>
+              <div className="space-y-1.5 border-b border-current/10 pb-3">
+                <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">
+                  Workshops
+                </span>
+                <ul className="list-disc list-inside space-y-1 opacity-80 pt-1">
+                  <li>Calligraphy & Mandala art</li>
+                  <li>Upcycled coconut shell waste (Egai craft)</li>
+                  <li>Upcycled waste newspaper baskets (Wellpaper)</li>
+                  <li>Eco-printing (Yakshi studio) & Cynotype printing</li>
+                  <li>Kolam rangoli & Paper mache art</li>
+                  <li>Pedilite workshop (pottery)</li>
+                </ul>
               </div>
 
-              <div className="space-y-1 border-b border-current/10 pb-3">
-                <div className="flex justify-between items-center">
-                  <span className="font-bold font-serif-luxury text-[#5C1322] dark:text-[#FAF6F0]">Circular Craft Innovation Award</span>
-                  <span className="text-[10px] font-mono opacity-50">2025</span>
+              <div className="space-y-1.5 pt-2">
+                <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">
+                  Hobbies & Interests
+                </span>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {['Dancing', 'Bharatnatyam (6 yrs)', 'Drawing', 'Playing', 'Travelling', 'Styling', 'Nail Artist'].map((hobby, i) => (
+                    <span 
+                      key={i} 
+                      className={`px-2 py-0.5 rounded-full border text-[9px] uppercase ${
+                        isDarkTheme ? 'bg-white/5 border-white/10 text-stone-300' : 'bg-[#EFE8DE] border-[#D4C5B0] text-[#221B1C]'
+                      }`}
+                    >
+                      {hobby}
+                    </span>
+                  ))}
                 </div>
-                <p className="opacity-75 text-[11px]">Finalist, Gujarat Handloom & Handicrafts Directorate</p>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex justify-between items-center">
-                  <span className="font-bold font-serif-luxury text-[#5C1322] dark:text-[#FAF6F0]">Contemporary Ethnic Biennale</span>
-                  <span className="text-[10px] font-mono opacity-50">2024</span>
-                </div>
-                <p className="opacity-75 text-[11px]">Curated Presentation: "The Patola Rebirth & Zero Waste"</p>
               </div>
             </div>
           </div>
