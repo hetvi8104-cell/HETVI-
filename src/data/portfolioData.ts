@@ -145,7 +145,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'theme_ethnic_mood',
         label: 'UPLOAD ETHNIC THEME BOARD IMAGE',
         placeholderHint: 'Heritage Indian Architecture & Craft Texture Reference',
-        defaultUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look04_e01.jpg',
         caption: 'Theme Ref 02: Gujarati Craft Legacy'
       }
     ]
@@ -775,7 +775,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_01_illustration',
         label: 'UPLOAD ETHNIC LOOK 01 FINAL ILLUSTRATION',
         placeholderHint: 'Full-Length Fashion Illustration for Ethnic Look 01',
-        defaultUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look04_e01.jpg',
         caption: 'Ethnic Look 01: Final Editorial Fashion Illustration'
       }
     ]
@@ -837,7 +837,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_02_flat_front',
         label: 'UPLOAD ETHNIC LOOK 02 FRONT TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Front View',
-        defaultUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look04_e01.jpg',
         caption: 'CAD Flat: Front View with Pre-Draped Pleats'
       },
       {
@@ -889,7 +889,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_03_flat_back',
         label: 'UPLOAD ETHNIC LOOK 03 BACK TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Back View',
-        defaultUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look04_e01.jpg',
         caption: 'CAD Flat: Back View with Farshi Leg Hemlines'
       }
     ]
@@ -1039,7 +1039,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_photoshoot_hero1',
         label: 'UPLOAD ETHNIC PHOTOSHOOT HERO 01',
         placeholderHint: 'Full-Body Editorial Shoot of Ethnic Look 01 (Bandhani Kalidar)',
-        defaultUrl: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look04_e01.jpg',
         caption: 'E-01: Contemporary Kalidar Flare'
       },
       {
