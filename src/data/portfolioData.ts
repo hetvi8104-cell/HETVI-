@@ -37,7 +37,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'cover_hero',
         label: 'UPLOAD COVER HERO FASHION IMAGE',
         placeholderHint: 'Editorial Hero Fashion Photograph / Illustration (High-Resolution Portrait)',
-        defaultUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=85',
+        defaultUrl: '/hetvi_look01.jpg',
         caption: 'Signature Architectural Silhouette | Ahmedabad, 2026'
       }
     ]
@@ -190,7 +190,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'mood_board_collage_1',
         label: 'UPLOAD MOOD BOARD IMAGE 01',
         placeholderHint: 'Atmospheric Texture / Lighting Mood Reference',
-        defaultUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85',
+        defaultUrl: '/hetvi_look01.jpg',
         caption: 'Mood Atmosphere: Sharp Contours'
       },
       {
@@ -416,7 +416,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'silhouette_croquis_sheet',
         label: 'UPLOAD SILHOUETTE CROQUIS EXPLORATION',
         placeholderHint: 'Fashion Croquis / Lineup Silhouette Study Sheet',
-        defaultUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look01.jpg',
         caption: 'Silhouette Line Studies & Proportion Mapping'
       }
     ]
@@ -591,7 +591,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'collection_lineup_full',
         label: 'UPLOAD FULL COLLECTION LINEUP ILLUSTRATION',
         placeholderHint: 'High-Res Full Collection Lineup Illustration / Render',
-        defaultUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=85',
+        defaultUrl: '/hetvi_look01.jpg',
         caption: 'Full 7-Look Runway Lineup: W-01 to E-04'
       }
     ]
@@ -614,7 +614,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_01_illustration',
         label: 'UPLOAD WESTERN LOOK 01 FINAL ILLUSTRATION',
         placeholderHint: 'Full-Length Fashion Illustration for Look 01',
-        defaultUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look01.jpg',
         caption: 'Western Look 01: Final Editorial Fashion Illustration'
       }
     ]
@@ -728,7 +728,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_03_flat_back',
         label: 'UPLOAD WESTERN LOOK 03 BACK TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Back View',
-        defaultUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look01.jpg',
         caption: 'CAD Flat: Back View with Harness Straps'
       }
     ]
@@ -1013,7 +1013,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_photoshoot_hero2',
         label: 'UPLOAD WESTERN PHOTOSHOOT HERO 02',
         placeholderHint: 'Full-Body Editorial Shoot of Western Look 02',
-        defaultUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look01.jpg',
         caption: 'W-02: Fluid Column Gown Drape'
       },
       {

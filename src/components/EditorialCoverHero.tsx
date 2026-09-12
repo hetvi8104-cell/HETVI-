@@ -31,7 +31,7 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeFilter, setActiveFilter] = useState<'all' | 'western' | 'ethnic'>('all');
-  const [selectedLookId, setSelectedLookId] = useState<string>('panel-w03'); // Default to Live 3D specimen for maximum visual impact
+  const [selectedLookId, setSelectedLookId] = useState<string>('panel-w01'); // Default to Look 01 — user's editorial photo
   const [isStageHovered, setIsStageHovered] = useState<boolean>(false);
 
   // Identify the exact 6 garments: 3 Western & 3 Ethnic

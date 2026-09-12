@@ -1,5 +1,6 @@
 import { GarmentLook, TextileSample, ColorSwatch } from '../types/portfolio';
 import { GARMENTS_DATA, TEXTILE_SAMPLES, COLOR_PALETTE } from './garmentsData';
+import look01HeroImg from '../assets/images/hetvi_look01_structured_sovereign.jpg';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
 import ashavaliHeroImg from '../assets/images/ashavali_brocade_lehenga_1788369652028.jpg';
@@ -54,9 +55,9 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     subtitle: 'Deconstructed Architectural Trench & Boned Bodice',
     tagline: 'Precision Tailoring Reimagined Through Sculptural Deconstruction',
     year: '2026',
-    heroImage: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=85',
+    heroImage: look01HeroImg,
     galleryImages: [
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85',
+      look01HeroImg,
       'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85',
       'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=85',
       'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=85'
