@@ -1,6 +1,7 @@
 import { GarmentLook, TextileSample, ColorSwatch } from '../types/portfolio';
 import { GARMENTS_DATA, TEXTILE_SAMPLES, COLOR_PALETTE } from './garmentsData';
 import look01HeroImg from '../assets/images/hetvi_look01_structured_sovereign.jpg';
+import look02HeroImg from '../assets/images/hetvi_look02_corduroy_coord.jpg';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
 import ashavaliHeroImg from '../assets/images/ashavali_brocade_lehenga_1788369652028.jpg';
@@ -113,9 +114,9 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     subtitle: 'Deconstructed Asymmetric Draped Column Gown',
     tagline: 'Tension Between Rigid Concrete Geometry & Liquid Silk Movement',
     year: '2026',
-    heroImage: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1400&q=85',
+    heroImage: look02HeroImg,
     galleryImages: [
-      'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=85',
+      look02HeroImg,
       'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85',
       'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85'
     ],

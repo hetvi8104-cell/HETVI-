@@ -234,7 +234,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'inspo_western_arch',
         label: 'UPLOAD WESTERN INSPIRATION BOARD',
         placeholderHint: 'Brutalist Geometric Architecture & Sculptural Fashion',
-        defaultUrl: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look02.jpg',
         caption: 'Inspiration: Cantilever Geometry'
       },
       {
@@ -659,7 +659,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_02_illustration',
         label: 'UPLOAD WESTERN LOOK 02 FINAL ILLUSTRATION',
         placeholderHint: 'Full-Length Fashion Illustration for Look 02',
-        defaultUrl: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look02.jpg',
         caption: 'Western Look 02: Final Editorial Fashion Illustration'
       }
     ]
