@@ -141,7 +141,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isDarkTheme, onS
                 </span>
                 <div className="flex items-center space-x-3 pt-1">
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/accounts/onetap/"
                     target="_blank"
                     rel="noreferrer"
                     data-cursor="link"
