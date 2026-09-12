@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Bodoni Moda', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Cormorant Garamond', 'Bodoni Moda', serif;
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-italian: 'Italiana', 'Cormorant Garamond', serif;
+    
+    /* Atelier Palette Tokens - Haute Dark Wine Theme */
+    --color-wine-dark-base: #220814;
+    --color-wine-surface: #2C0D1B;
+    --color-wine-elevated: #371122;
+    --color-wine-border: #6E1A29;
+    --color-wine-red: #6E1A29;
+    --color-wine-deep: #4A0B18;
+    --color-wine-rose: #D48B96;
+    --color-champagne-light: #FAF4EF;
+    
+    /* Legacy beige tokens */
+    --color-beige-base: #F5F0EB;
+    --color-beige-card: #FCFAF7;
+    --color-beige-muted: #EFE8DE;
+    --color-beige-border: #DCD0BF;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #FAF4EF;
+    background-color: #220814;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Bodoni Moda', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-display-luxury {
+  font-family: 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif;
+}
+
+.font-editorial {
+  font-family: 'Italiana', 'Cormorant Garamond', serif;
+}
+
+.font-sans-modern {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Editorial aesthetic dot grid with refined wine-red tint */
+.bg-editorial-dots {
+  background-image: radial-gradient(#6E1A29 0.6px, transparent 0.6px);
+  background-size: 40px 40px;
+}
+
+/* Luxury Grain overlay in warm wine-stone */
+.bg-grain {
+  background-image: radial-gradient(rgba(110, 26, 41, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-dark-grain {
+  background-image: radial-gradient(rgba(245, 240, 235, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Vertical text utilities */
+.writing-vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+/* Glassmorphism subtle with warm beige and wine borders */
+.glass-panel {
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(220, 208, 191, 0.7);
+}
+
+.glass-dark-panel {
+  background: rgba(34, 8, 20, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(110, 26, 41, 0.45);
+}
+
+/* Custom scrollbar for horizontal slide previews and tech sheets */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EFE8DE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #944B57;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6E1A29;
+}
+
+/* Print optimizations */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+}

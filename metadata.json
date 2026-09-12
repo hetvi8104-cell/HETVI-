@@ -1,0 +1,6 @@
+{
+  "name": "Hetvi Kapadia — Haute Architecture Editorial Archive",
+  "description": "Interactive fashion-editorial experience featuring six curated master garments (3 Western + 3 Ethnic) with asymmetrical moodboard parallax and design stories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
