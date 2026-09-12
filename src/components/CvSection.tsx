@@ -6,10 +6,6 @@ interface CvSectionProps {
 }
 
 export const CvSection: React.FC<CvSectionProps> = ({ isDarkTheme }) => {
-  const handleDownloadDossier = () => {
-    window.print();
-  };
-
   return (
     <section id="cv" className="relative w-full py-28 px-6 md:px-12 lg:px-20 border-b border-[#D4C5B0]/70 dark:border-white/[0.06]">
       <div className="max-w-7xl mx-auto space-y-16">
@@ -30,14 +26,17 @@ export const CvSection: React.FC<CvSectionProps> = ({ isDarkTheme }) => {
             </p>
           </div>
 
-          <button
-            onClick={handleDownloadDossier}
+          <a
+            href="/hetvi_kapadia_cv.pdf"
+            download="Hetvi_Kapadia_CV.pdf"
+            target="_blank"
+            rel="noreferrer"
             data-cursor="link"
             className="px-6 py-3 rounded-full border border-[#6E1A29] text-[#6E1A29] hover:bg-[#6E1A29] hover:text-[#FAF6F0] dark:border-[#D48B96] dark:text-[#D48B96] dark:hover:bg-[#6E1A29] dark:hover:text-[#FAF6F0] transition-all text-[10px] font-sans-modern tracking-[0.2em] uppercase font-bold flex items-center space-x-2.5 shadow-sm active:scale-95"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Download Dossier (PDF)</span>
-          </button>
+          </a>
         </div>
 
         {/* 3 Column Systematic CV Grid */}
