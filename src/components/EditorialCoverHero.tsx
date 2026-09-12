@@ -203,7 +203,7 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
       {/* High-Fashion Watermark Typography */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-[0.03] overflow-hidden select-none">
         <span className="text-[28vw] font-serif-luxury font-black tracking-tighter uppercase whitespace-nowrap text-[#6E1A29]">
-          HAUTE
+          DUALITY
         </span>
       </div>
 
