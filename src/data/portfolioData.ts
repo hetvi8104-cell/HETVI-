@@ -138,7 +138,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'theme_western_mood',
         label: 'UPLOAD WESTERN THEME BOARD IMAGE',
         placeholderHint: 'Brutalist Architecture & Tailoring Reference',
-        defaultUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look03.jpg',
         caption: 'Theme Ref 01: Geometric Façades'
       },
       {
@@ -204,7 +204,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'mood_board_collage_3',
         label: 'UPLOAD MOOD BOARD IMAGE 03',
         placeholderHint: 'Architectural Shadow & Minimalist Form',
-        defaultUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=85',
+        defaultUrl: '/hetvi_look03.jpg',
         caption: 'Mood Atmosphere: Raw Elegance'
       },
       {
@@ -572,7 +572,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'final_selection_board',
         label: 'UPLOAD FINAL DESIGN SELECTION SPREAD',
         placeholderHint: 'Lineup Board of All 7 Final Designs',
-        defaultUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look03.jpg',
         caption: 'The Final Seven Capsule Selection'
       }
     ]
@@ -704,7 +704,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_03_illustration',
         label: 'UPLOAD WESTERN LOOK 03 FINAL ILLUSTRATION',
         placeholderHint: 'Full-Length Fashion Illustration for Look 03',
-        defaultUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look03.jpg',
         caption: 'Western Look 03: Final Editorial Fashion Illustration'
       }
     ]
@@ -1020,7 +1020,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_photoshoot_hero3',
         label: 'UPLOAD WESTERN PHOTOSHOOT HERO 03',
         placeholderHint: 'Full-Body Editorial Shoot of Western Look 03',
-        defaultUrl: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look03.jpg',
         caption: 'W-03: Pleated Culotte Suite'
       }
     ]

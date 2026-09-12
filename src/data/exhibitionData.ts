@@ -2,6 +2,7 @@ import { GarmentLook, TextileSample, ColorSwatch } from '../types/portfolio';
 import { GARMENTS_DATA, TEXTILE_SAMPLES, COLOR_PALETTE } from './garmentsData';
 import look01HeroImg from '../assets/images/hetvi_look01_structured_sovereign.jpg';
 import look02HeroImg from '../assets/images/hetvi_look02_corduroy_coord.jpg';
+import look03HeroImg from '../assets/images/hetvi_look03_leather_laceup.jpg';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
 import ashavaliHeroImg from '../assets/images/ashavali_brocade_lehenga_1788369652028.jpg';
@@ -167,12 +168,12 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     subtitle: '3D CLO Digital Garment • Iridescent Track Trousers & Cropped Mock-Neck',
     tagline: 'Parametric 3D Pattern Engineering, High-Gloss Chromatic Refraction & Athletic Ergonomics',
     year: '2026',
-    heroImage: neoKineticHeroImg,
+    heroImage: look03HeroImg,
     videoUrl: '/hetvi123.mp4',
     galleryImages: [
+      look03HeroImg,
       neoKineticHeroImg,
       neoKineticDetailImg,
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85',
       'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=85'
     ],
     concept: 'A cyber-couture digital simulation exploring the dynamic tension between athletic utility and prism-optic chromatic textiles. High-waisted jogger trousers with neon-lime and obsidian chevron racing bands are simulated with high-luster iridescent nylon taffeta physics, paired with a minimalist lavender compression cropped bodice.',
