@@ -66,7 +66,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'designer_portrait',
         label: 'UPLOAD DESIGNER PORTRAIT',
         placeholderHint: 'Professional Designer Portrait / Atelier Studio Photo',
-        defaultUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_portrait.jpg',
         caption: 'Hetvi Kapadia | Fashion Designer & Material Explorer'
       },
       {
@@ -1081,7 +1081,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'final_closing_hero',
         label: 'UPLOAD CLOSING FINAL HERO IMAGE',
         placeholderHint: 'Final Ensemble Collage / Portrait with Collection',
-        defaultUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_portrait.jpg',
         caption: 'Hetvi Kapadia — Ready for Industry & Atelier Collaboration'
       }
     ]

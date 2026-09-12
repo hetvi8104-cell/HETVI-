@@ -28,6 +28,22 @@ export const TextileLabSection: React.FC<TextileLabSectionProps> = ({ isDarkThem
   const samples = TEXTILE_SAMPLES;
   const currentSample: TextileSample = samples[selectedSampleIndex] || samples[0];
 
+  const tensionRef = useRef(tension);
+  const waveSpeedRef = useRef(waveSpeed);
+  const isSimRotatingRef = useRef(isSimRotating);
+
+  useEffect(() => {
+    tensionRef.current = tension;
+  }, [tension]);
+
+  useEffect(() => {
+    waveSpeedRef.current = waveSpeed;
+  }, [waveSpeed]);
+
+  useEffect(() => {
+    isSimRotatingRef.current = isSimRotating;
+  }, [isSimRotating]);
+
   // 3D Live Cloth Simulation Canvas
   useEffect(() => {
     if (!mountRef.current) return;
@@ -84,14 +100,14 @@ export const TextileLabSection: React.FC<TextileLabSectionProps> = ({ isDarkThem
       const elapsed = clock.getElapsedTime();
 
       if (clothMeshRef.current && clothMeshRef.current.geometry) {
-        if (isSimRotating) {
+        if (isSimRotatingRef.current) {
           clothMeshRef.current.rotation.y = Math.sin(elapsed * 0.4) * 0.25;
           clothMeshRef.current.rotation.x = Math.sin(elapsed * 0.3) * 0.15;
         }
 
         const pos = clothMeshRef.current.geometry.attributes.position;
-        const speedFactor = (waveSpeed / 50) * 3;
-        const ampFactor = (100 - tension) / 400;
+        const speedFactor = (waveSpeedRef.current / 50) * 3;
+        const ampFactor = (100 - tensionRef.current) / 400;
 
         for (let i = 0; i < pos.count; i++) {
           const u = pos.getX(i);
@@ -121,12 +137,17 @@ export const TextileLabSection: React.FC<TextileLabSectionProps> = ({ isDarkThem
     return () => {
       window.removeEventListener('resize', handleResize);
       if (reqAnimRef.current) cancelAnimationFrame(reqAnimRef.current);
+      geo.dispose();
+      mat.dispose();
       renderer.dispose();
+      if (container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement);
+      }
     };
-  }, [isDarkTheme, tension, waveSpeed, isSimRotating]);
+  }, [isDarkTheme]);
 
   return (
-    <section id="textiles" className="relative w-full py-28 px-6 md:px-12 lg:px-20 border-b border-[#D4C5B0]/70 dark:border-white/[0.06]">
+    <section id="textile" className="relative w-full py-28 px-6 md:px-12 lg:px-20 border-b border-[#D4C5B0]/70 dark:border-white/[0.06]">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#D4C5B0]/70 dark:border-white/10 pb-8">

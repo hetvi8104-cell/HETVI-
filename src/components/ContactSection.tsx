@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle2, ArrowUp, Instagram, Linkedin, Globe } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, ArrowUp, Instagram, Linkedin, Globe, Loader2, AlertCircle } from 'lucide-react';
+
+export const ATELIER_INQUIRY_EMAIL = 'hetvi8104@gmail.com';
 
 interface ContactSectionProps {
   isDarkTheme: boolean;
@@ -13,20 +15,62 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isDarkTheme, onS
     inquiryType: 'Couture Commission',
     message: ''
   });
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState<string>('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        inquiryType: 'Couture Commission',
-        message: ''
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${ATELIER_INQUIRY_EMAIL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `[HK Atelier Inquiry] ${formData.inquiryType} from ${formData.name}`,
+          _template: 'table',
+          _captcha: 'false',
+          name: formData.name,
+          email: formData.email,
+          inquiryType: formData.inquiryType,
+          message: formData.message
+        })
       });
-    }, 4000);
+
+      const data = await response.json();
+
+      if (response.ok && (data.success === 'true' || data.success === true)) {
+        setSubmitStatus('success');
+        setStatusMessage(`Thank you, ${formData.name}. Your inquiry has been forwarded directly to ${ATELIER_INQUIRY_EMAIL}.`);
+        setFormData({
+          name: '',
+          email: '',
+          inquiryType: 'Couture Commission',
+          message: ''
+        });
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setStatusMessage('Direct web transmission failed. You can send your inquiry directly via your default email application.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleMailtoFallback = () => {
+    const subject = encodeURIComponent(`[HK Atelier Inquiry] ${formData.inquiryType} from ${formData.name || 'Visitor'}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nInquiry: ${formData.inquiryType}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:${ATELIER_INQUIRY_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -217,12 +261,51 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ isDarkTheme, onS
                 />
               </div>
 
+              {submitStatus === 'success' && (
+                <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-start space-x-3 text-emerald-400 animate-in fade-in">
+                  <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0 text-emerald-400" />
+                  <p className="text-xs font-sans-modern leading-relaxed">
+                    {statusMessage}
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 space-y-3 text-rose-300 animate-in fade-in">
+                  <div className="flex items-start space-x-3">
+                    <AlertCircle className="w-5 h-5 mt-0.5 shrink-0 text-rose-400" />
+                    <p className="text-xs font-sans-modern leading-relaxed">
+                      {statusMessage}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleMailtoFallback}
+                    data-cursor="link"
+                    className="px-4 py-2 rounded-full bg-[#6E1A29] hover:bg-[#802031] text-white text-[10px] font-sans-modern tracking-widest uppercase font-bold flex items-center space-x-2 transition-all shadow-sm active:scale-95"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Launch in Mail App Directly</span>
+                  </button>
+                </div>
+              )}
+
               <button
                 type="submit"
+                disabled={isSubmitting}
                 data-cursor="link"
-                className="w-full py-4 rounded-full bg-[#6E1A29] hover:bg-[#802031] text-[#FAF6F0] text-[11px] font-sans-modern tracking-[0.22em] uppercase font-bold flex items-center justify-center space-x-2 shadow-md transition-all active:scale-95"
+                className={`w-full py-4 rounded-full text-[#FAF6F0] text-[11px] font-sans-modern tracking-[0.22em] uppercase font-bold flex items-center justify-center space-x-2 shadow-md transition-all active:scale-95 ${
+                  isSubmitting 
+                    ? 'bg-[#6E1A29]/70 cursor-wait' 
+                    : 'bg-[#6E1A29] hover:bg-[#802031]'
+                }`}
               >
-                {isSubmitted ? (
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-[#FAF6F0]" />
+                    <span>Transmitting to Atelier...</span>
+                  </>
+                ) : submitStatus === 'success' ? (
                   <>
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                     <span>Inquiry Transmitted Successfully</span>

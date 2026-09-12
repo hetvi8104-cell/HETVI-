@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import designerPortraitImg from '../assets/images/hetvi_kapadia_designer_portrait.jpg';
 
 interface AboutSectionProps {
   isDarkTheme: boolean;
@@ -24,9 +25,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ isDarkTheme, onExplo
           <div className="lg:col-span-5 space-y-6">
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-[#DCD0BF] dark:border-white/10 group" data-cursor="view">
               <img 
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85" 
+                src={designerPortraitImg} 
                 alt="Hetvi Kapadia — Fashion Designer" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover object-[center_22%] transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#150F11]/90 via-[#150F11]/25 to-transparent" />
               

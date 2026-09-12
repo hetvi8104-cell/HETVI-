@@ -22,13 +22,6 @@ interface MoodboardPanelConfig {
   depth: number; // Z-parallax factor for depth layering
   baseRotate: number; // Natural physical moodboard tilt angle in degrees
   tapePosition: 'top-center' | 'top-left' | 'top-right';
-  zIndex: number;
-  desktopStyle: {
-    left?: string;
-    right?: string;
-    top: string;
-    width: string;
-  };
 }
 
 export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
@@ -38,7 +31,8 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeFilter, setActiveFilter] = useState<'all' | 'western' | 'ethnic'>('all');
-  const [hoveredPanelId, setHoveredPanelId] = useState<string | null>(null);
+  const [selectedLookId, setSelectedLookId] = useState<string>('panel-w03'); // Default to Live 3D specimen for maximum visual impact
+  const [isStageHovered, setIsStageHovered] = useState<boolean>(false);
 
   // Identify the exact 6 garments: 3 Western & 3 Ethnic
   const w01 = EXHIBITION_PROJECTS.find((p) => p.id === 'proj-w01') || EXHIBITION_PROJECTS[0];
@@ -48,9 +42,8 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
   const e02 = EXHIBITION_PROJECTS.find((p) => p.id === 'proj-e02') || EXHIBITION_PROJECTS[4];
   const e03 = EXHIBITION_PROJECTS.find((p) => p.id === 'proj-e03') || EXHIBITION_PROJECTS[5];
 
-  // Six Physical Fashion Moodboard Cards placed at varying depths, angles, and asymmetrical positions
+  // Curated Garment Configs
   const moodboardPanels: MoodboardPanelConfig[] = [
-    // 01. Western 01: Top Left
     {
       id: 'panel-w01',
       project: w01,
@@ -61,80 +54,10 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
       fabricSpec: '340 GSM Wool Gabardine',
       techniqueTag: 'EXPOSED CORSET BONING',
       silhouetteType: 'Architectural Hourglass',
-      depth: 34,
-      baseRotate: -3.2,
-      tapePosition: 'top-center',
-      zIndex: 14,
-      desktopStyle: {
-        left: '3.5%',
-        top: '12%',
-        width: '245px'
-      }
+      depth: 26,
+      baseRotate: -1.8,
+      tapePosition: 'top-center'
     },
-    // 02. Ethnic 01: Top Right
-    {
-      id: 'panel-e01',
-      project: e01,
-      code: 'E-01',
-      lookNumber: 'LOOK 04',
-      categoryLabel: 'ETHNIC',
-      specimenLabel: 'SPECIMEN E-01 // 32-KALI ANARKALI',
-      fabricSpec: 'Chanderi Silk & Mashru',
-      techniqueTag: 'MICRO BANDHANI RESIST',
-      silhouetteType: '32-Kali Volumetric Flare',
-      depth: 28,
-      baseRotate: 2.8,
-      tapePosition: 'top-right',
-      zIndex: 13,
-      desktopStyle: {
-        right: '3.5%',
-        top: '10%',
-        width: '250px'
-      }
-    },
-    // 03. Western 03: Center-Right (Eye-Level Prominence with Live 3D CLO Video)
-    {
-      id: 'panel-w03',
-      project: w03,
-      code: 'W-03 // 3D',
-      lookNumber: 'LOOK 03',
-      categoryLabel: 'WESTERN',
-      specimenLabel: 'SPECIMEN W-03 // DIGITAL ATELIER',
-      fabricSpec: '110 GSM Holographic Nylon',
-      techniqueTag: '3D CLO CLOTH SIMULATION',
-      silhouetteType: 'Kinetic Cutaway Tailoring',
-      depth: 44,
-      baseRotate: -1.6,
-      tapePosition: 'top-left',
-      zIndex: 35,
-      desktopStyle: {
-        right: '3.5%',
-        top: '38%',
-        width: '275px'
-      }
-    },
-    // 04. Ethnic 02: Center-Left
-    {
-      id: 'panel-e02',
-      project: e02,
-      code: 'E-02',
-      lookNumber: 'LOOK 05',
-      categoryLabel: 'ETHNIC',
-      specimenLabel: 'SPECIMEN E-02 // PATOLA CONCEPT SAREE',
-      fabricSpec: 'Upcycled Double-Ikat Silk',
-      techniqueTag: 'ZERO-WASTE REASSEMBLY',
-      silhouetteType: 'Asymmetrical Molded Drape',
-      depth: 30,
-      baseRotate: 2.4,
-      tapePosition: 'top-center',
-      zIndex: 15,
-      desktopStyle: {
-        left: '4%',
-        top: '42%',
-        width: '245px'
-      }
-    },
-    // 05. Western 02: Lower-Left
     {
       id: 'panel-w02',
       project: w02,
@@ -145,17 +68,52 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
       fabricSpec: '180 GSM Mulberry Silk',
       techniqueTag: 'DIRECT BIAS GRAVITY DRAPE',
       silhouetteType: 'Liquid Column Line',
-      depth: 22,
-      baseRotate: -2.4,
-      tapePosition: 'top-left',
-      zIndex: 12,
-      desktopStyle: {
-        left: '7%',
-        top: '68%',
-        width: '240px'
-      }
+      depth: 20,
+      baseRotate: 1.5,
+      tapePosition: 'top-left'
     },
-    // 06. Ethnic 03: Lower-Right
+    {
+      id: 'panel-w03',
+      project: w03,
+      code: 'W-03 // 3D',
+      lookNumber: 'LOOK 03',
+      categoryLabel: 'WESTERN',
+      specimenLabel: 'SPECIMEN W-03 // DIGITAL ATELIER',
+      fabricSpec: '110 GSM Holographic Nylon',
+      techniqueTag: '3D CLO CLOTH SIMULATION',
+      silhouetteType: 'Kinetic Cutaway Tailoring',
+      depth: 34,
+      baseRotate: -1.2,
+      tapePosition: 'top-right'
+    },
+    {
+      id: 'panel-e01',
+      project: e01,
+      code: 'E-01',
+      lookNumber: 'LOOK 04',
+      categoryLabel: 'ETHNIC',
+      specimenLabel: 'SPECIMEN E-01 // 32-KALI ANARKALI',
+      fabricSpec: 'Chanderi Silk & Mashru',
+      techniqueTag: 'MICRO BANDHANI RESIST',
+      silhouetteType: '32-Kali Volumetric Flare',
+      depth: 24,
+      baseRotate: 1.6,
+      tapePosition: 'top-right'
+    },
+    {
+      id: 'panel-e02',
+      project: e02,
+      code: 'E-02',
+      lookNumber: 'LOOK 05',
+      categoryLabel: 'ETHNIC',
+      specimenLabel: 'SPECIMEN E-02 // PATOLA CONCEPT SAREE',
+      fabricSpec: 'Upcycled Double-Ikat Silk',
+      techniqueTag: 'ZERO-WASTE REASSEMBLY',
+      silhouetteType: 'Asymmetrical Molded Drape',
+      depth: 28,
+      baseRotate: -1.5,
+      tapePosition: 'top-center'
+    },
     {
       id: 'panel-e03',
       project: e03,
@@ -166,20 +124,18 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
       fabricSpec: '240 GSM Micro Silk Velvet',
       techniqueTag: '120 ARTISAN HRS ZARDOZI',
       silhouetteType: 'Flared Farshi & Angrakha',
-      depth: 36,
-      baseRotate: 2.2,
-      tapePosition: 'top-right',
-      zIndex: 16,
-      desktopStyle: {
-        right: '6.5%',
-        top: '66%',
-        width: '255px'
-      }
+      depth: 30,
+      baseRotate: 1.4,
+      tapePosition: 'top-left'
     }
   ];
 
-  // Mouse Parallax Physics with Smooth Lerp & Directional Shadow Dynamics
-  const panelRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  // Active Panel Reference
+  const activePanel = moodboardPanels.find((p) => p.id === selectedLookId) || moodboardPanels[2];
+  const heroImageUrl = getEffectiveImageUrl(`proj_${activePanel.project.id}_hero`, activePanel.project.heroImage);
+
+  // Parallax Tilt Physics on the Virtual Stage
+  const stageRef = useRef<HTMLDivElement>(null);
   const mouseTargetRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const mouseCurrentRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const animIdRef = useRef<number | null>(null);
@@ -187,7 +143,6 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!containerRef.current) return;
     const { innerWidth, innerHeight } = window;
-    // Normalized coordinates from -1.0 to +1.0
     const normX = (e.clientX - innerWidth / 2) / (innerWidth / 2);
     const normY = (e.clientY - innerHeight / 2) / (innerHeight / 2);
     mouseTargetRef.current = { x: normX, y: normY };
@@ -207,27 +162,15 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
       const mx = mouseCurrentRef.current.x;
       const my = mouseCurrentRef.current.y;
 
-      moodboardPanels.forEach((panel) => {
-        const el = panelRefs.current.get(panel.id);
-        if (el) {
-          const isHovered = hoveredPanelId === panel.id;
-          const shiftX = mx * panel.depth;
-          const shiftY = my * panel.depth;
-          const tiltX = -my * (panel.depth * 0.14);
-          const tiltY = mx * (panel.depth * 0.14);
-          const hoverLiftZ = isHovered ? 46 : 0;
-          const hoverTiltOffset = isHovered ? 0 : panel.baseRotate;
+      if (stageRef.current) {
+        const tiltX = -my * 4;
+        const tiltY = mx * 4;
+        const shiftX = mx * 8;
+        const shiftY = my * 8;
+        const hoverLift = isStageHovered ? 12 : 0;
 
-          // Realistic physical drop shadow that reacts opposite to cursor (simulating a physical overhead key light)
-          const shadowOffsetX = -shiftX * 0.75;
-          const shadowOffsetY = -shiftY * 0.75 + (isHovered ? 26 : 14);
-          const shadowBlur = isHovered ? 36 : 20 + Math.abs(shiftX) * 0.3;
-          const shadowAlpha = isHovered ? 0.28 : 0.18;
-
-          el.style.transform = `translate3d(${shiftX}px, ${shiftY}px, ${hoverLiftZ}px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${hoverTiltOffset}deg)`;
-          el.style.boxShadow = `${shadowOffsetX}px ${shadowOffsetY}px ${shadowBlur}px rgba(0,0,0,${shadowAlpha})`;
-        }
-      });
+        stageRef.current.style.transform = `translate3d(${shiftX}px, ${shiftY}px, ${hoverLift}px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${activePanel.baseRotate}deg)`;
+      }
 
       animIdRef.current = requestAnimationFrame(renderLoop);
     };
@@ -238,51 +181,58 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
       window.removeEventListener('mousemove', handleMouseMove);
       if (animIdRef.current) cancelAnimationFrame(animIdRef.current);
     };
-  }, [handleMouseMove, hoveredPanelId, moodboardPanels]);
+  }, [handleMouseMove, isStageHovered, activePanel.baseRotate]);
+
+  // Filtered panels for navigation
+  const filteredPanels = moodboardPanels.filter((panel) => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'western') return panel.categoryLabel === 'WESTERN';
+    if (activeFilter === 'ethnic') return panel.categoryLabel === 'ETHNIC';
+    return true;
+  });
 
   return (
     <section 
       id="hero" 
       ref={containerRef}
-      className={`relative w-full min-h-screen lg:min-h-[880px] select-none overflow-hidden flex flex-col justify-between transition-colors duration-700 ${
+      className={`relative w-full min-h-screen lg:h-screen lg:max-h-screen select-none overflow-hidden flex flex-col justify-between transition-colors duration-700 ${
         isDarkTheme ? 'bg-[#220814] text-[#FAF4EF]' : 'bg-[#F5F0EB] text-[#221B1C]'
       }`}
       style={{ perspective: '1400px' }}
     >
-      {/* Background Architectural Grid & High-Fashion Coordinates */}
-      <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-[0.035] overflow-hidden select-none">
-        <span className="text-[26vw] font-serif-luxury font-black tracking-tighter uppercase whitespace-nowrap text-[#6E1A29]">
-          ATELIER
+      {/* High-Fashion Watermark Typography */}
+      <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-[0.03] overflow-hidden select-none">
+        <span className="text-[28vw] font-serif-luxury font-black tracking-tighter uppercase whitespace-nowrap text-[#6E1A29]">
+          HAUTE
         </span>
       </div>
 
-      {/* Delicate Studio Alignment Crosshairs */}
+      {/* Atmospheric Subtle Studio Grid & Architectural Ticks */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className={`w-full h-full ${isDarkTheme ? 'opacity-[0.04]' : 'opacity-[0.035]'} bg-editorial-dots`} />
-        {/* Subtle Architectural Tick Marks at Four Quadrants */}
-        <div className="absolute top-24 left-1/4 text-[8px] font-mono tracking-widest opacity-25 text-current">
-          + 23°02′N // 72°35′E
+        <div className="absolute top-24 left-12 text-[8px] font-mono tracking-widest opacity-30 text-current">
+          + 23°02′N // 72°35′E • AHMEDABAD ATELIER
         </div>
-        <div className="absolute bottom-28 right-1/4 text-[8px] font-mono tracking-widest opacity-25 text-current">
-          + SILHOUETTE_MATRIX_AW26
+        <div className="absolute bottom-20 right-12 text-[8px] font-mono tracking-widest opacity-30 text-current">
+          + THESIS_SPECIMEN_MATRIX_AW26
         </div>
       </div>
 
-      {/* Top Minimalist Editorial Ribbon */}
-      <div className="relative z-30 pt-24 md:pt-28 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pointer-events-auto">
-        <div className="space-y-1">
-          <div className="flex items-center space-x-2">
-            <span className="w-2 h-2 rounded-full bg-[#6E1A29] animate-pulse" />
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.35em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
+      {/* TOP MINIMAL EDITORIAL RIBBON */}
+      <div className="relative z-30 pt-20 md:pt-24 px-6 md:px-12 lg:px-16 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pointer-events-auto">
+        <div className="flex items-center space-x-3">
+          <span className="w-2 h-2 rounded-full bg-[#6E1A29] animate-pulse" />
+          <div className="flex flex-col">
+            <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.3em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
               AUTUMN / WINTER 2026 CAPSULE
             </span>
+            <span className="text-[9px] font-sans-modern tracking-[0.2em] uppercase opacity-70 text-[#221B1C] dark:text-[#F3EBE6]">
+              HETVI KAPADIA • INDUS UNIVERSITY
+            </span>
           </div>
-          <h2 className="text-xs sm:text-sm font-sans-modern tracking-[0.25em] uppercase opacity-75 text-[#221B1C] dark:text-[#F3EBE6]">
-            HETVI KAPADIA • INDUS UNIVERSITY
-          </h2>
         </div>
 
-        {/* Minimal Curated Category Filter Tabs */}
+        {/* Minimal Category Filter Tabs */}
         <div className={`flex items-center space-x-1 p-1 rounded-full border backdrop-blur-xl transition-all shadow-xs ${
           isDarkTheme ? 'bg-white/[0.04] border-white/10' : 'bg-[#EFE8DE]/80 border-[#D4C5B0]'
         }`}>
@@ -322,163 +272,244 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
         </div>
       </div>
 
-      {/* CENTRAL EDITORIAL MASTHEAD WITH GENEROUS NEGATIVE SPACE */}
-      <div className="relative z-25 flex flex-col items-center justify-center text-center px-4 sm:px-6 my-auto py-8 sm:py-12 pointer-events-auto">
-        <div className={`relative max-w-2xl sm:max-w-3xl w-full rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 transition-all duration-700 backdrop-blur-md shadow-xl ${
-          isDarkTheme
-            ? 'bg-[#2C0D1B]/92 border border-[#6E1A29]/50 shadow-[0_24px_60px_rgba(15,2,8,0.7)]'
-            : 'bg-[#F5F0EB]/92 border border-[#D4C5B0] shadow-[0_24px_64px_rgba(110,26,41,0.06)]'
-        }`}>
-          {/* Subtle Top Wine Registration Mark */}
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <span className="w-8 h-[1px] bg-[#6E1A29]/60 dark:bg-[#D48B96]/60" />
-            <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.38em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
-              Haute Couture & Textile Archive
-            </span>
-            <span className="w-8 h-[1px] bg-[#6E1A29]/60 dark:bg-[#D48B96]/60" />
-          </div>
+      {/* MAIN SPLIT HORIZON ATELIER STAGE (100VH COMPOSITION) */}
+      <div className="relative z-20 flex-1 px-6 md:px-12 lg:px-16 flex items-center justify-center my-auto py-4">
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* Main Collection Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif-luxury font-bold tracking-tight leading-[1.05] text-[#5C1322] dark:text-[#FAF6F0]">
-            HAUTE ARCHITECTURE
-          </h1>
-
-          {/* Subtitle Framing the 6 Garments */}
-          <p className="mt-3 text-[10px] sm:text-xs font-sans-modern tracking-[0.24em] uppercase font-semibold text-[#221B1C]/75 dark:text-[#F3EBE6]/75 max-w-xl mx-auto">
-            Six Curated Master Garments • 3 Western Structural Forms & 3 Ancestral Gujarati Silhouettes
-          </p>
-
-          {/* Curatorial Introductory Write-Up */}
-          <div className="my-5 py-4 border-y border-[#D4C5B0]/70 dark:border-white/10 max-w-2xl mx-auto">
-            <p className="text-xs sm:text-sm md:text-[15px] font-serif-luxury italic leading-relaxed text-[#221B1C]/90 dark:text-[#F3EBE6]/90">
-              "An architectural fashion thesis investigating the dialogue between structural Western tailoring and ancestral Gujarati textile mastery. Exploring volumetric gravity, internal corset boning, algorithmic pattern drafting, and circular zero-waste double-ikat assembly."
-            </p>
-          </div>
-
-          {/* Micro-Interactions & Tactical Guidance */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-1">
-            <button
-              onClick={onExploreClick}
-              data-cursor="link"
-              className="px-6 py-2.5 rounded-full bg-[#6E1A29] hover:bg-[#802031] text-[#FAF6F0] text-[10px] font-sans-modern tracking-[0.22em] uppercase font-bold shadow-md hover:shadow-lg transition-all flex items-center space-x-2 active:scale-95"
-            >
-              <span>EXPLORE COMPLETE ARCHIVE</span>
-              <ArrowDown className="w-3 h-3 text-[#FAF6F0]" />
-            </button>
-
-            <div className="flex items-center space-x-2 text-[9px] font-mono tracking-widest uppercase opacity-70 text-[#221B1C] dark:text-[#F3EBE6]">
-              <span>PARALLAX MOODBOARD FIELD</span>
-              <span className="w-1 h-1 rounded-full bg-current opacity-40" />
-              <span>CLICK CARD FOR DESIGN STORY</span>
+          {/* LEFT STAGE: HAUTE ARCHITECTURE TYPOGRAPHY & RUNWAY INDEX (7 COLS) */}
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+            
+            {/* Editorial Eyebrow with Geometric Line Accent */}
+            <div className="flex items-center space-x-3">
+              <span className="w-6 h-[1px] bg-[#6E1A29] dark:bg-[#D48B96]" />
+              <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.35em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
+                HAUTE COUTURE & TEXTILE ARCHIVE
+              </span>
             </div>
+
+            {/* Monumental Title */}
+            <div className="space-y-1">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif-luxury font-bold tracking-tight leading-[0.95] text-[#5C1322] dark:text-[#FAF6F0]">
+                HAUTE
+                <span className="block font-normal italic font-serif-luxury text-[#6E1A29] dark:text-[#E29BA6]">
+                  ARCHITECTURE
+                </span>
+              </h1>
+              <p className="text-[11px] sm:text-xs font-sans-modern tracking-[0.22em] uppercase font-semibold text-[#221B1C]/75 dark:text-[#F3EBE6]/75 pt-2 max-w-xl">
+                Six Curated Master Garments • Western Structural Forms & Ancestral Gujarati Silhouettes
+              </p>
+            </div>
+
+            {/* Curatorial Thesis Excerpt */}
+            <p className="text-xs sm:text-sm font-serif-luxury italic leading-relaxed text-[#221B1C]/85 dark:text-[#F3EBE6]/85 border-l-2 border-[#6E1A29]/50 pl-4 max-w-xl py-0.5">
+              "An architectural fashion thesis investigating the dialogue between structural Western tailoring and ancestral Gujarati textile mastery. Exploring volumetric gravity, internal corset boning, and zero-waste double-ikat assembly."
+            </p>
+
+            {/* INTERACTIVE 6-GARMENT RUNWAY INDEX */}
+            <div className="space-y-1.5 pt-2 max-w-xl">
+              <div className="flex items-center justify-between text-[8px] font-mono tracking-widest uppercase opacity-50 pb-1 border-b border-current/10">
+                <span>INDEXED SPECIMENS</span>
+                <span>SELECT TO PREVIEW SPECIMEN</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                {filteredPanels.map((p) => {
+                  const isSelected = selectedLookId === p.id;
+                  const is3D = p.id === 'panel-w03';
+
+                  return (
+                    <button
+                      key={p.id}
+                      onClick={() => setSelectedLookId(p.id)}
+                      onMouseEnter={() => setSelectedLookId(p.id)}
+                      data-cursor="story"
+                      className={`text-left p-2.5 rounded-xl border transition-all flex items-center justify-between group active:scale-95 ${
+                        isSelected
+                          ? isDarkTheme
+                            ? 'bg-[#381123] border-[#D48B96] shadow-md'
+                            : 'bg-white border-[#6E1A29] shadow-sm'
+                          : isDarkTheme
+                            ? 'bg-white/[0.02] border-white/5 hover:border-white/20'
+                            : 'bg-white/40 border-[#D4C5B0]/60 hover:border-stone-400'
+                      }`}
+                    >
+                      <div className="space-y-0.5 min-w-0 pr-2">
+                        <div className="flex items-center space-x-1.5">
+                          <span className={`text-[8px] font-mono font-bold tracking-wider ${
+                            isSelected ? 'text-[#6E1A29] dark:text-[#D48B96]' : 'opacity-60'
+                          }`}>
+                            {p.code}
+                          </span>
+                          {is3D && (
+                            <span className="px-1 py-0.2 rounded-xs bg-[#DFFF00] text-black text-[7px] font-bold tracking-tighter shrink-0 animate-pulse">
+                              LIVE 3D
+                            </span>
+                          )}
+                        </div>
+                        <h4 className="text-xs font-serif-luxury font-bold tracking-wide truncate group-hover:text-[#6E1A29] dark:group-hover:text-[#D48B96] transition-colors">
+                          {p.project.title}
+                        </h4>
+                        <p className="text-[7.5px] font-sans-modern opacity-65 truncate">
+                          {p.fabricSpec}
+                        </p>
+                      </div>
+
+                      <div 
+                        className="w-2.5 h-2.5 rounded-full border border-black/20 shrink-0 shadow-2xs"
+                        style={{ backgroundColor: p.project.colors[0]?.hex || '#6E1A29' }}
+                        title={p.project.colors[0]?.name}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Quick Action CTAs */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <button
+                onClick={() => onSelectProject(activePanel.project)}
+                data-cursor="story"
+                className="px-6 py-3 rounded-full bg-[#6E1A29] hover:bg-[#802031] text-[#FAF6F0] text-[10px] font-sans-modern tracking-[0.2em] uppercase font-bold shadow-md hover:shadow-lg transition-all flex items-center space-x-2 active:scale-95 group"
+              >
+                <span>OPEN DESIGN DOSSIER</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </button>
+
+              <button
+                onClick={onExploreClick}
+                data-cursor="link"
+                className={`px-5 py-3 rounded-full border text-[10px] font-sans-modern tracking-[0.2em] uppercase font-bold transition-all flex items-center space-x-2 ${
+                  isDarkTheme 
+                    ? 'border-white/20 hover:border-white text-stone-200' 
+                    : 'border-[#D4C5B0] hover:border-[#6E1A29] text-stone-800'
+                }`}
+              >
+                <span>EXPLORE ARCHIVE</span>
+                <ArrowDown className="w-3 h-3" />
+              </button>
+            </div>
+
           </div>
-        </div>
-      </div>
 
-      {/* DESKTOP ASYMMETRICAL 3D FLOATING MOODBOARD PANELS (EXACTLY 6 GARMENTS) */}
-      <div className="hidden lg:block absolute inset-0 pointer-events-none z-15 overflow-hidden">
-        {moodboardPanels.map((panel) => {
-          const isMatch = activeFilter === 'all' || 
-            (activeFilter === 'western' && panel.categoryLabel === 'WESTERN') || 
-            (activeFilter === 'ethnic' && panel.categoryLabel === 'ETHNIC');
-          
-          const heroUrl = getEffectiveImageUrl(`proj_${panel.project.id}_hero`, panel.project.heroImage);
-          const isHovered = hoveredPanelId === panel.id;
-
-          return (
+          {/* RIGHT STAGE: 3D VIRTUAL MANNEQUIN & SPECIMEN SPOTLIGHT (5 COLS) */}
+          <div className="lg:col-span-5 flex items-center justify-center pointer-events-auto">
             <div
-              key={panel.id}
-              ref={(el) => {
-                if (el) panelRefs.current.set(panel.id, el);
-              }}
-              onClick={() => onSelectProject(panel.project)}
-              onMouseEnter={() => setHoveredPanelId(panel.id)}
-              onMouseLeave={() => setHoveredPanelId(null)}
+              ref={stageRef}
+              onClick={() => onSelectProject(activePanel.project)}
+              onMouseEnter={() => setIsStageHovered(true)}
+              onMouseLeave={() => setIsStageHovered(false)}
               data-cursor="story"
-              className={`absolute pointer-events-auto cursor-pointer transition-all duration-500 ease-out will-change-transform group ${
-                isMatch ? 'opacity-100 scale-100' : 'opacity-15 pointer-events-none scale-95'
-              }`}
+              className="relative w-full max-w-[360px] sm:max-w-[400px] lg:max-w-[390px] cursor-pointer transition-transform duration-300 ease-out group"
               style={{
-                left: panel.desktopStyle.left,
-                right: panel.desktopStyle.right,
-                top: panel.desktopStyle.top,
-                width: panel.desktopStyle.width,
-                zIndex: isHovered ? 40 : panel.zIndex,
                 transformStyle: 'preserve-3d'
               }}
             >
-              {/* Physical Moodboard Card Envelope with Real Cardstock Aesthetics */}
-              <div className={`relative rounded-2xl border p-3.5 transition-all duration-500 shadow-xl backdrop-blur-md ${
+              {/* Luxury Ambient Glow Behind Card */}
+              <div className="absolute -inset-4 rounded-3xl bg-radial from-[#6E1A29]/30 to-transparent blur-2xl opacity-60 group-hover:opacity-90 transition-opacity pointer-events-none" />
+
+              {/* Physical Card Envelope */}
+              <div className={`relative rounded-3xl border p-4 sm:p-5 transition-all duration-500 shadow-2xl backdrop-blur-md ${
                 isDarkTheme 
-                  ? 'bg-[#2C0D1B]/95 border-[#6E1A29]/40 group-hover:border-[#D48B96] group-hover:bg-[#381123]' 
-                  : 'bg-[#FCFAF7] border-[#DCD0BF] group-hover:border-[#6E1A29]/80 group-hover:bg-white'
+                  ? 'bg-[#2C0D1B]/95 border-[#6E1A29]/60 group-hover:border-[#D48B96]' 
+                  : 'bg-[#FCFAF7] border-[#DCD0BF] group-hover:border-[#6E1A29]'
               }`}>
-                {/* Physical Pinned Frosted Tape Motif at Configured Position */}
-                <div className={`absolute -top-2.5 w-14 h-4 rounded-xs bg-[#E8DFD1]/80 dark:bg-white/10 backdrop-blur-md border border-[#D4C5B0]/60 shadow-2xs pointer-events-none ${
-                  panel.tapePosition === 'top-left' ? 'left-6' : panel.tapePosition === 'top-right' ? 'right-6' : 'left-1/2 -translate-x-1/2'
+                {/* Physical Masking Tape Motif */}
+                <div className={`absolute -top-3 w-16 h-5 rounded-xs bg-[#E8DFD1]/90 dark:bg-white/15 backdrop-blur-md border border-[#D4C5B0]/70 shadow-xs pointer-events-none ${
+                  activePanel.tapePosition === 'top-left' ? 'left-8' : activePanel.tapePosition === 'top-right' ? 'right-8' : 'left-1/2 -translate-x-1/2'
                 }`} />
 
-                {/* Studio Architectural Corner Registration Crosshairs */}
-                <span className="absolute top-2 left-2 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
-                <span className="absolute top-2 right-2 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
-                <span className="absolute bottom-2 left-2 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
-                <span className="absolute bottom-2 right-2 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
+                {/* Studio Crosshairs */}
+                <span className="absolute top-2.5 left-2.5 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
+                <span className="absolute top-2.5 right-2.5 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
+                <span className="absolute bottom-2.5 left-2.5 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
+                <span className="absolute bottom-2.5 right-2.5 text-[8px] font-mono text-current opacity-30 select-none pointer-events-none">+</span>
 
-                {/* Moodboard Header Tag with Archival Code */}
-                <div className="flex items-center justify-between pb-2 border-b border-current/10 mb-2.5 px-0.5">
-                  <div className="flex items-center space-x-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6E1A29]" />
-                    <span className="text-[8px] font-mono tracking-[0.25em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
-                      {panel.code}
+                {/* Specimen Header Row */}
+                <div className="flex items-center justify-between pb-2.5 border-b border-current/10 mb-3 px-1">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 rounded-full bg-[#6E1A29]" />
+                    <span className="text-[9px] font-mono tracking-[0.25em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
+                      {activePanel.code}
                     </span>
                   </div>
-                  <span className="text-[8px] font-sans-modern tracking-wider uppercase opacity-65 font-semibold text-[#221B1C] dark:text-[#F3EBE6]">
-                    {panel.categoryLabel}
+                  <span className="text-[8px] font-sans-modern tracking-wider uppercase opacity-70 font-semibold">
+                    {activePanel.categoryLabel}
                   </span>
                 </div>
 
-                {/* Media Specimen Frame (Live 3D MP4 Video for Look W-03, High-Res Editorial Photo for Others) */}
-                <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-black/40 border border-current/5 shadow-inner flex items-center justify-center">
-                  {panel.project.videoUrl ? (
+                {/* Tall Media Specimen Frame (Video for W-03, High-Res Image for Others) */}
+                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-black/40 border border-current/5 shadow-inner flex items-center justify-center">
+                  {activePanel.project.videoUrl ? (
                     <video
-                      src={panel.project.videoUrl}
+                      key={activePanel.project.videoUrl}
+                      src={activePanel.project.videoUrl}
                       autoPlay
                       muted
                       loop
                       playsInline
                       preload="auto"
-                      className="w-full h-full object-contain bg-black/80 transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-contain bg-black/90 transition-transform duration-700 group-hover:scale-105"
                       aria-label="3D Video Specimen"
                     >
-                      <source src={panel.project.videoUrl} type="video/mp4" />
+                      <source src={activePanel.project.videoUrl} type="video/mp4" />
                     </video>
                   ) : (
                     <img
-                      src={heroUrl}
-                      alt={panel.project.title}
+                      key={heroImageUrl}
+                      src={heroImageUrl}
+                      alt={activePanel.project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="eager"
                     />
                   )}
 
-                  {/* High-Fashion Gradient Vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity pointer-events-none" />
+                  {/* Gradient Vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-60 group-hover:opacity-75 transition-opacity pointer-events-none" />
 
-                  {/* Floating Corner Specimen Classification Tag */}
-                  <div className="absolute top-2.5 left-2.5 pointer-events-none">
-                    <span className="px-2 py-0.5 rounded-full backdrop-blur-md bg-black/65 border border-white/20 text-[7px] font-mono tracking-widest text-white uppercase font-bold">
-                      {panel.project.videoUrl ? '3D CLO SIMULATION' : 'ARCHIVAL LOOK'}
+                  {/* Floating Classification Tag */}
+                  <div className="absolute top-3 left-3 pointer-events-none">
+                    <span className="px-2.5 py-1 rounded-full backdrop-blur-md bg-black/75 border border-white/20 text-[8px] font-mono tracking-widest text-white uppercase font-bold flex items-center space-x-1.5 shadow-md">
+                      {activePanel.project.videoUrl ? (
+                        <>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#DFFF00] animate-pulse" />
+                          <span>LIVE 3D CLO SIMULATION</span>
+                        </>
+                      ) : (
+                        <>
+                          <Sparkles className="w-2.5 h-2.5 text-[#D48B96]" />
+                          <span>ARCHIVAL SPECIMEN</span>
+                        </>
+                      )}
                     </span>
                   </div>
 
-                  {/* Physical Fabric Swatch Pin (Top Right Corner) */}
-                  <div className="absolute top-2.5 right-2.5 pointer-events-none flex items-center space-x-1">
-                    <span className="w-2.5 h-2.5 rounded-full border border-white/60 shadow-sm" style={{ backgroundColor: panel.project.colors[0]?.hex || '#6E1A29' }} />
+                  {/* Fabric Swatch Pin (Top Right Corner) */}
+                  <div className="absolute top-3 right-3 pointer-events-none flex items-center space-x-1.5 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20">
+                    <span 
+                      className="w-2.5 h-2.5 rounded-full border border-white/80 shadow-sm" 
+                      style={{ backgroundColor: activePanel.project.colors[0]?.hex || '#6E1A29' }} 
+                    />
+                    <span className="text-[7px] font-mono text-white tracking-widest uppercase">
+                      SWATCH
+                    </span>
+                  </div>
+
+                  {/* Bottom Overlay Info on Media Frame */}
+                  <div className="absolute bottom-3 left-3 right-3 pointer-events-none space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[8px] font-mono tracking-widest uppercase text-white/90 font-bold bg-[#6E1A29]/90 px-2 py-0.5 rounded-full">
+                        {activePanel.lookNumber}
+                      </span>
+                      <span className="text-[8px] font-mono tracking-widest text-white/80 uppercase">
+                        {activePanel.silhouetteType}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Hover Floating Action Prompt */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <span className="px-3.5 py-1.5 rounded-full backdrop-blur-xl bg-[#6E1A29]/95 text-white border border-white/30 text-[9px] font-sans-modern tracking-[0.2em] uppercase font-bold shadow-xl flex items-center space-x-1.5">
+                    <span className="px-4 py-2 rounded-full backdrop-blur-xl bg-[#6E1A29]/95 text-white border border-white/30 text-[9px] font-sans-modern tracking-[0.2em] uppercase font-bold shadow-2xl flex items-center space-x-2">
                       <span>OPEN DESIGN STORY</span>
                       <ArrowUpRight className="w-3 h-3" />
                     </span>
@@ -486,146 +517,71 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
                 </div>
 
                 {/* Card Meta & Color Swatches Footer */}
-                <div className="pt-3 space-y-1.5 px-0.5">
+                <div className="pt-3.5 space-y-2 px-1">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-serif-luxury font-bold tracking-wide line-clamp-1 group-hover:text-[#6E1A29] dark:group-hover:text-[#D48B96] transition-colors">
-                      {panel.project.title}
+                    <h3 className="text-sm font-serif-luxury font-bold tracking-wide group-hover:text-[#6E1A29] dark:group-hover:text-[#D48B96] transition-colors">
+                      {activePanel.project.title}
                     </h3>
-                    <span className="text-[7px] font-mono tracking-wider opacity-60 uppercase shrink-0">
-                      {panel.lookNumber}
+                    <span className="text-[8px] font-mono tracking-widest uppercase opacity-70">
+                      {activePanel.techniqueTag}
                     </span>
                   </div>
                   
-                  <div className="flex items-center justify-between text-[8px] font-sans-modern opacity-75">
-                    <span className="line-clamp-1">{panel.fabricSpec}</span>
-                  </div>
+                  <div className="flex items-center justify-between pt-2 border-t border-current/10 text-[8px] font-sans-modern opacity-80">
+                    <span className="font-semibold">{activePanel.fabricSpec}</span>
 
-                  {/* Color Palette Micro Swatch Row with Technique Notation */}
-                  <div className="flex items-center justify-between pt-1.5 border-t border-current/10">
+                    {/* Color Swatch Dots */}
                     <div className="flex items-center space-x-1">
-                      {panel.project.colors.slice(0, 3).map((c, i) => (
+                      {activePanel.project.colors.slice(0, 3).map((c, i) => (
                         <span 
                           key={i} 
-                          className="w-2.5 h-2.5 rounded-full border border-black/15 shadow-2xs" 
+                          className="w-2.5 h-2.5 rounded-full border border-black/20 shadow-2xs" 
                           style={{ backgroundColor: c.hex }} 
                           title={`${c.name} (${c.hex})`}
                         />
                       ))}
                     </div>
-                    <span className="text-[8px] font-mono tracking-widest uppercase opacity-60 font-semibold">
-                      {panel.techniqueTag}
-                    </span>
                   </div>
                 </div>
+
               </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
 
-      {/* MOBILE / TABLET RESPONSIVE EDITORIAL MOODBOARD GRID */}
-      <div className="block lg:hidden relative z-10 px-6 py-8 w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          {moodboardPanels.map((panel, idx) => {
-            const isMatch = activeFilter === 'all' || 
-              (activeFilter === 'western' && panel.categoryLabel === 'WESTERN') || 
-              (activeFilter === 'ethnic' && panel.categoryLabel === 'ETHNIC');
-
-            if (!isMatch) return null;
-
-            const heroUrl = getEffectiveImageUrl(`proj_${panel.project.id}_hero`, panel.project.heroImage);
-            const alternatingTilt = idx % 2 === 0 ? '-1.5deg' : '1.5deg';
-
-            return (
-              <div
-                key={panel.id}
-                onClick={() => onSelectProject(panel.project)}
-                data-cursor="story"
-                className="relative rounded-2xl border p-3.5 transition-all duration-300 shadow-lg cursor-pointer active:scale-95"
-                style={{
-                  transform: `rotate(${alternatingTilt})`,
-                  backgroundColor: isDarkTheme ? '#2C0D1B' : '#FCFAF7',
-                  borderColor: isDarkTheme ? 'rgba(110,26,41,0.6)' : '#DCD0BF'
-                }}
-              >
-                <div className="flex items-center justify-between pb-2 border-b border-current/10 mb-2">
-                  <span className="text-[8px] font-mono tracking-[0.25em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
-                    {panel.code}
-                  </span>
-                  <span className="text-[8px] font-sans-modern tracking-wider uppercase opacity-60">
-                    {panel.categoryLabel}
-                  </span>
-                </div>
-
-                <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-black/40 mb-2.5 flex items-center justify-center">
-                  {panel.project.videoUrl ? (
-                    <video
-                      src={panel.project.videoUrl}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="auto"
-                      className="w-full h-full object-contain bg-black/80"
-                    >
-                      <source src={panel.project.videoUrl} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={heroUrl} alt={panel.project.title} className="w-full h-full object-cover" />
-                  )}
-                  <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-full bg-[#6E1A29] text-[8px] font-mono font-bold text-white uppercase shadow-sm flex items-center space-x-1">
-                    <span>STORY</span>
-                    <ArrowUpRight className="w-2.5 h-2.5" />
-                  </div>
-                </div>
-
-                <h3 className="text-xs font-serif-luxury font-bold tracking-wide line-clamp-1">
-                  {panel.project.title}
-                </h3>
-                <p className="text-[8px] font-sans-modern opacity-70 line-clamp-1">
-                  {panel.fabricSpec}
-                </p>
-              </div>
-            );
-          })}
         </div>
       </div>
 
-      {/* BOTTOM MINIMAL EDITORIAL GUIDANCE & TACTILE NAVIGATOR */}
-      <div className="relative z-20 pb-8 px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-4 pointer-events-auto">
+      {/* BOTTOM EDITORIAL GUIDANCE & TACTILE MINI FILMSTRIP */}
+      <div className="relative z-20 pb-6 md:pb-8 px-6 md:px-12 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-4 pointer-events-auto border-t border-current/5 pt-4">
         <div className="flex items-center space-x-3 text-[9px] sm:text-[10px] tracking-[0.25em] uppercase opacity-65 font-semibold text-[#221B1C] dark:text-[#F3EBE6]">
           <span>6 CURATED MASTER SPECIMENS</span>
           <span className="w-1 h-1 rounded-full bg-current opacity-40" />
           <span>3 WESTERN & 3 ETHNIC</span>
         </div>
 
-        {/* Minimalist 6-Specimen Interactive Navigator Strip */}
-        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
+        {/* Tactile Mini Switcher Strip */}
+        <div className="flex items-center gap-1.5 flex-wrap justify-center">
           {moodboardPanels.map((p) => {
-            const isHovered = hoveredPanelId === p.id;
+            const isSelected = selectedLookId === p.id;
             const is3D = p.id === 'panel-w03';
             return (
               <button
                 key={p.id}
-                onClick={() => onSelectProject(p.project)}
-                onMouseEnter={() => setHoveredPanelId(p.id)}
-                onMouseLeave={() => setHoveredPanelId(null)}
+                onClick={() => setSelectedLookId(p.id)}
                 data-cursor="story"
                 title={`${p.code}: ${p.project.title}`}
-                className={`px-2.5 py-1 rounded-full text-[8px] sm:text-[9px] font-mono uppercase tracking-wider transition-all flex items-center space-x-1.5 border active:scale-95 ${
-                  is3D
+                className={`px-3 py-1 rounded-full text-[8px] sm:text-[9px] font-mono uppercase tracking-wider transition-all flex items-center space-x-1.5 border active:scale-95 ${
+                  isSelected
                     ? 'bg-[#6E1A29] text-white border-[#6E1A29] shadow-md font-bold'
-                    : isHovered
-                      ? 'bg-[#6E1A29] text-white border-[#6E1A29]'
-                      : isDarkTheme
-                        ? 'bg-white/5 border-white/10 text-stone-300 hover:text-white hover:border-white/30'
-                        : 'bg-white/80 border-[#D4C5B0] text-stone-700 hover:text-black hover:border-stone-400'
+                    : isDarkTheme
+                      ? 'bg-white/5 border-white/10 text-stone-300 hover:text-white hover:border-white/30'
+                      : 'bg-white/80 border-[#D4C5B0] text-stone-700 hover:text-black hover:border-stone-400'
                 }`}
               >
                 <span>{p.code}</span>
                 {is3D && (
                   <span className="px-1 py-0.2 rounded-xs bg-[#DFFF00] text-black text-[7px] font-bold tracking-tighter">
-                    LIVE 3D
+                    3D
                   </span>
                 )}
               </button>

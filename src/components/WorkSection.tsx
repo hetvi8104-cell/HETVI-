@@ -130,7 +130,7 @@ export const WorkSection: React.FC<WorkSectionProps> = ({ onSelectProject, isDar
                   <div className="flex items-center space-x-2">
                     <span className="w-5 h-[1px] bg-[#6E1A29] dark:bg-[#D48B96]" />
                     <span className="text-[10px] font-sans-modern tracking-[0.25em] uppercase font-bold text-[#6E1A29] dark:text-[#D48B96]">
-                      DIGITAL MOTION SPECIMEN • LOOK 04
+                      DIGITAL MOTION SPECIMEN • LOOK 03
                     </span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif-luxury font-bold tracking-tight text-[#5C1322] dark:text-[#FAF6F0]">
