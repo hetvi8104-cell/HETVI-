@@ -1,6 +1,9 @@
 import { GarmentLook, TextileSample, ColorSwatch } from '../types/portfolio';
 import { GARMENTS_DATA, TEXTILE_SAMPLES, COLOR_PALETTE } from './garmentsData';
 import look01HeroImg from '../assets/images/hetvi_look01_structured_sovereign.jpg';
+import look01Gallery1Img from '../assets/images/hetvi_look01_gallery1.jpg';
+import look01Gallery2Img from '../assets/images/hetvi_look01_gallery2.jpg';
+import look01Gallery3Img from '../assets/images/hetvi_look01_gallery3.jpg';
 import look02HeroImg from '../assets/images/hetvi_look02_corduroy_coord.jpg';
 import look03HeroImg from '../assets/images/hetvi_look03_leather_laceup.jpg';
 import look04E01Img from '../assets/images/hetvi_look04_e01_bandhani.jpg';
@@ -63,9 +66,9 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     heroImage: look01HeroImg,
     galleryImages: [
       look01HeroImg,
-      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=85'
+      look01Gallery1Img,
+      look01Gallery2Img,
+      look01Gallery3Img
     ],
     concept: 'An interrogation of classic British trench coat archetypes through the prism of Brutalist concrete monoliths. By exposing the internal corset boning channels and exaggerating shoulder flaps into sculptural wings, the garment becomes a protective exoskeleton.',
     inspiration: 'Brutalist architecture in Chandigarh and Ahmedabad, mid-century couture tailoring, and industrial scaffolding.',

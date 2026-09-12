@@ -105,7 +105,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'overview_western_preview',
         label: 'UPLOAD WESTERN COLLECTION OVERVIEW',
         placeholderHint: 'Western Silhouette Mood / Tailoring Focus Image',
-        defaultUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look01_gallery1.jpg',
         caption: 'Western Capsule: Architectural Deconstruction'
       },
       {
@@ -323,7 +323,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'market_trend_board',
         label: 'UPLOAD MARKET & TREND RESEARCH BOARD',
         placeholderHint: 'Runway Trend Analysis / Market Mapping Chart',
-        defaultUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look01_gallery1.jpg',
         caption: 'Market Positioning & Trend Mapping 2026/27'
       }
     ]
@@ -544,7 +544,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'design_dev_timeline_sheet',
         label: 'UPLOAD DESIGN DEVELOPMENT SHEET',
         placeholderHint: 'Step-by-step Development Sketches (Sketch 1 to Refined)',
-        defaultUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look01_gallery1.jpg',
         caption: 'Iterative Evolution from Calico Toile to Final Form'
       }
     ]
@@ -721,7 +721,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_03_flat_front',
         label: 'UPLOAD WESTERN LOOK 03 FRONT TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Front View',
-        defaultUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look01_gallery1.jpg',
         caption: 'CAD Flat: Front View with Origami Pleat Mapping'
       },
       {
@@ -752,7 +752,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_campaign_triptych',
         label: 'UPLOAD WESTERN MINI COLLECTION CAMPAIGN',
         placeholderHint: 'Editorial 3-Look Campaign Spread or Triptych Photo',
-        defaultUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look01_gallery1.jpg',
         caption: 'Western Capsule: 3 Looks Campaign Cohesion'
       }
     ]
@@ -1006,7 +1006,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'western_photoshoot_hero1',
         label: 'UPLOAD WESTERN PHOTOSHOOT HERO 01',
         placeholderHint: 'Full-Body Editorial Shoot of Western Look 01',
-        defaultUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look01_gallery1.jpg',
         caption: 'W-01: Sculptural Trench in Motion'
       },
       {
