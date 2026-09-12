@@ -5,6 +5,7 @@ import look02HeroImg from '../assets/images/hetvi_look02_corduroy_coord.jpg';
 import look03HeroImg from '../assets/images/hetvi_look03_leather_laceup.jpg';
 import look04E01Img from '../assets/images/hetvi_look04_e01_bandhani.jpg';
 import look05E02Img from '../assets/images/hetvi_look05_e02_lehenga.jpg';
+import look06E03Img from '../assets/images/hetvi_look06_e03_paisley.jpg';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
 import ashavaliHeroImg from '../assets/images/ashavali_brocade_lehenga_1788369652028.jpg';
@@ -337,9 +338,9 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     subtitle: 'Hand-Embroidered Velvet Angrakha & Tiered Farshi Pajama',
     tagline: 'Mughal Royal Court Heritage Infused With Layered Translucency',
     year: '2026',
-    heroImage: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1400&q=85',
+    heroImage: look06E03Img,
     galleryImages: [
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
+      look06E03Img,
       'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
       'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=1200&q=85'
     ],

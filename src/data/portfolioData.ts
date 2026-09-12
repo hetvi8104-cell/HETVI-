@@ -112,7 +112,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'overview_ethnic_preview',
         label: 'UPLOAD ETHNIC COLLECTION OVERVIEW',
         placeholderHint: 'Ethnic Silhouette Mood / Heritage Craft Image',
-        defaultUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look06_e03.jpg',
         caption: 'Ethnic Capsule: Contemporary Heritage & Cording'
       }
     ]
@@ -241,7 +241,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'inspo_ethnic_stepwell',
         label: 'UPLOAD ETHNIC INSPIRATION BOARD',
         placeholderHint: 'Indian Architectural Stepwells, Ornate Jali, Patan Weaving',
-        defaultUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look06_e03.jpg',
         caption: 'Inspiration: Stepwell Rhythm & Heritage Weave'
       }
     ]
@@ -792,7 +792,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_01_flat_front',
         label: 'UPLOAD ETHNIC LOOK 01 FRONT TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Front View',
-        defaultUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look06_e03.jpg',
         caption: 'CAD Flat: Front View with 32 Kali Breakdown'
       },
       {
@@ -844,7 +844,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_02_flat_back',
         label: 'UPLOAD ETHNIC LOOK 02 BACK TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Back View',
-        defaultUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look06_e03.jpg',
         caption: 'CAD Flat: Back View with Wing-Shoulder Armor'
       }
     ]
@@ -865,7 +865,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_03_illustration',
         label: 'UPLOAD ETHNIC LOOK 03 FINAL ILLUSTRATION',
         placeholderHint: 'Full-Length Fashion Illustration for Ethnic Look 03',
-        defaultUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look06_e03.jpg',
         caption: 'Ethnic Look 03: Final Editorial Fashion Illustration'
       }
     ]
@@ -913,7 +913,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_campaign_triptych',
         label: 'UPLOAD ETHNIC MINI COLLECTION CAMPAIGN',
         placeholderHint: 'Editorial 3-Look Ethnic Campaign Spread / Triptych Photo',
-        defaultUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look06_e03.jpg',
         caption: 'Ethnic Capsule: 3 Looks Heritage Campaign'
       }
     ]
@@ -1046,7 +1046,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_photoshoot_hero2',
         label: 'UPLOAD ETHNIC PHOTOSHOOT HERO 02',
         placeholderHint: 'Full-Body Editorial Shoot of Ethnic Look 02 (Patola Saree)',
-        defaultUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look06_e03.jpg',
         caption: 'E-02: Upcycled Patola Draped Saree'
       },
       {
