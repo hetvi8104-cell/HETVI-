@@ -1,8 +1,6 @@
 import { GarmentLook, ColorSwatch, TextileSample } from '../types/portfolio';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
-import ashavaliHeroImg from '../assets/images/ashavali_brocade_lehenga_1788369652028.jpg';
-import ashavaliDetailImg from '../assets/images/ashavali_detail_texture_1788369670696.jpg';
 
 export const COLOR_PALETTE: ColorSwatch[] = [
   {
@@ -510,80 +508,6 @@ export const GARMENTS_DATA: GarmentLook[] = [
       'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85'
     ],
     defaultDetail: 'https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=1000&q=80'
-  },
-  {
-    id: 'ethnic-look-04',
-    category: 'ethnic',
-    lookNumber: 4,
-    code: 'E-04',
-    name: 'The Ashavali Architect',
-    tagline: 'Architectural Brocade Capelet & 48-Kali Knife-Pleated Lehenga',
-    concept: 'A celebration of Ahmedabad’s historic Ashavali brocade weaving legacy. An architectural structured shoulder capelet woven with pure gold zari and jewel-toned flora-fauna motifs, layered over a sculpted micro-corseted choli and a 48-kali knife-pleated raw silk lehenga with concealed horsehair crinoline and hand-beaten gold mukaish spangles.',
-    silhouette: 'Structured high-collar capelet with sculpted corseted bodice and high-waisted 48-kali knife-pleated flare lehenga.',
-    keyDetails: [
-      'Architectural high-stand collar capelet in pure gold zari Ashavali brocade',
-      '48-kali graduated knife pleats creating a 9-meter hem circumference (ghera)',
-      'Concealed horsehair crinoline hem band sustaining parabolic structure during movement',
-      'Hand-beaten gold mukaish spangle sprinkling along lehenga panels',
-      'Deep wine silk-velvet waistband with carved brass temple-arch buckle'
-    ],
-    fabrics: [
-      {
-        name: 'Handwoven Ashavali Gold Brocade',
-        composition: '100% Pure Mulberry Silk & Real Gold Zari',
-        weight: '260 GSM',
-        texture: 'Rich twill weave with raised metallic flora motifs',
-        drape: 'Sculptural, firm, radiant luster',
-        color: 'Gold & Deep Wine',
-        hex: '#D4AF37'
-      },
-      {
-        name: 'Handloom Tussar-Matka Silk',
-        composition: '100% Wild Tussar Silk',
-        weight: '220 GSM',
-        texture: 'Crisp organic slub with warm natural light absorption',
-        drape: 'Crisp recovery, holds sharp knife creases',
-        color: 'Warm Beige / Muted Cream',
-        hex: '#D8C7B5'
-      },
-      {
-        name: 'Pure Mulberry Silk Habotai Lining',
-        composition: '100% Pure Silk',
-        weight: '65 GSM',
-        texture: 'Soft, anti-static, skin-gentle glide',
-        drape: 'Fluid lightweight interior layer',
-        color: 'Deep Wine',
-        hex: '#5A1F2B'
-      }
-    ],
-    trims: [
-      { item: 'Carved Brass Architectural Collar Clasp', spec: 'Hand-chiseled artisan brass interlocking latch', placement: 'Capelet front neck closure' },
-      { item: 'Hand-Beaten Mukaish Badla Spangles', spec: 'Pure silver-gold flat metallic sequins hand-twisted into weave', placement: 'Lehenga pleat valleys' },
-      { item: 'Crinoline Horsehair Braid', spec: '5cm stiff flexible woven synthetic braid', placement: 'Inside lower lehenga hemline' }
-    ],
-    constructionNotes: [
-      'Ashavali brocade capelet lined with canvas interfacing and tailored with French seams to preserve exterior motif alignment.',
-      '48 individual knife pleats pressed using pressurized steam and anchored along an internal multi-channel grosgrain stay.',
-      'Waistband features dual-closure safety hooks and reinforced cotton canvas stay for zero-distortion weight distribution.'
-    ],
-    measurements: [
-      { part: 'Capelet Collar Height', spec: '8 cm / 3.1 in' },
-      { part: 'Capelet Shoulder Width', spec: '44 cm / 17.3 in' },
-      { part: 'Corset Bust', spec: '88 cm / 34.5 in' },
-      { part: 'Lehenga Waist', spec: '68 cm / 26.8 in' },
-      { part: 'Lehenga Length', spec: '110 cm / 43.3 in' },
-      { part: 'Total Hem Ghera', spec: '920 cm / 362 in' }
-    ],
-    defaultIllustration: ashavaliHeroImg,
-    defaultFlatFront: ashavaliHeroImg,
-    defaultFlatBack: ashavaliDetailImg,
-    defaultPhotoshoot: [
-      ashavaliHeroImg,
-      ashavaliDetailImg,
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=1200&q=85'
-    ],
-    defaultDetail: ashavaliDetailImg
   }
 ];
 

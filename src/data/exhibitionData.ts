@@ -11,8 +11,6 @@ import look05E02Img from '../assets/images/hetvi_look05_e02_lehenga.jpg';
 import look06E03Img from '../assets/images/hetvi_look06_e03_paisley.jpg';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
-import ashavaliHeroImg from '../assets/images/ashavali_brocade_lehenga_1788369652028.jpg';
-import ashavaliDetailImg from '../assets/images/ashavali_detail_texture_1788369670696.jpg';
 
 export interface ExhibitionProject {
   id: string;
@@ -385,62 +383,5 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
       'Velvet panels interfaced with lightweight fusible weft-insertion to eliminate seam crush.'
     ],
     garmentDataId: 'ethnic-look-03'
-  },
-
-  // 7. ETHNIC WEAR: Look 04
-  {
-    id: 'proj-e04',
-    category: 'ethnic',
-    title: 'THE ASHAVALI ARCHITECT',
-    subtitle: 'Architectural Brocade Capelet & 48-Kali Knife-Pleated Lehenga',
-    tagline: 'Centuries-Old Ahmedabad Ashavali Weave Reimagined into Sculptural Kinetic Volumes',
-    year: '2026',
-    heroImage: ashavaliHeroImg,
-    galleryImages: [
-      ashavaliHeroImg,
-      ashavaliDetailImg,
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=1200&q=85'
-    ],
-    concept: 'A celebration of Ahmedabad’s historic Ashavali brocade weaving legacy. An architectural structured shoulder capelet woven with pure gold zari and jewel-toned flora-fauna motifs, layered over a sculpted micro-corseted choli and a 48-kali knife-pleated raw silk lehenga with concealed horsehair crinoline and hand-beaten gold mukaish spangles.',
-    inspiration: 'Historic Ahmedabad Ashavali brocades, Calico Museum of Textiles archives, Sidi Saiyyed lattice geometry, and kinetic architectural folds.',
-    moodboard: {
-      title: 'Ashavali Heritage & Kinetic Knife Pleating',
-      description: 'Pure gold zari twill brocade, structured capelet collar, hand-beaten mukaish dots, and 48-kali knife pleating in warm beige and deep crimson wine.',
-      image: ashavaliDetailImg,
-      keywords: ['Ashavali Brocade', 'Architectural Cape', 'Knife Pleats', 'Pure Gold Zari', 'Mukaish Spangles']
-    },
-    colors: [
-      { name: 'Pure Gold', hex: '#D4AF37', rgb: 'rgb(212, 175, 55)', proportion: 35, usage: 'Ashavali brocade zari motifs' },
-      { name: 'Deep Wine', hex: '#5A1F2B', rgb: 'rgb(90, 31, 43)', proportion: 35, usage: 'Velvet waistband & lehenga hem' },
-      { name: 'Warm Beige', hex: '#D8C7B5', rgb: 'rgb(216, 199, 181)', proportion: 20, usage: 'Handloom Tussar lehenga body' },
-      { name: 'Charcoal Bronze', hex: '#3D271D', rgb: 'rgb(61, 39, 29)', proportion: 10, usage: 'Carved brass collar clasp' }
-    ],
-    materials: [
-      { name: 'Handwoven Ashavali Gold Brocade', composition: '100% Pure Mulberry Silk & Real Gold Zari', weight: '260 GSM', texture: 'Rich twill weave with raised metallic flora', drape: 'Sculptural, firm, radiant luster', color: 'Gold & Deep Wine', hex: '#D4AF37' },
-      { name: 'Handloom Tussar-Matka Silk', composition: '100% Wild Tussar Silk', weight: '220 GSM', texture: 'Crisp organic slub with warm natural light absorption', drape: 'Crisp recovery, holds sharp knife creases', color: 'Warm Beige', hex: '#D8C7B5' }
-    ],
-    silhouette: 'Structured high-collar capelet with sculpted corseted bodice and high-waisted 48-kali knife-pleated flare lehenga.',
-    textileTechniques: ['Handloom Ashavali twill gold zari brocade weaving', '48-kali knife pleating with horsehair stabilization', 'Hand-beaten mukaish needlework'],
-    sketches: [
-      ashavaliHeroImg,
-      ashavaliDetailImg
-    ],
-    techFlats: {
-      front: ashavaliHeroImg,
-      back: ashavaliDetailImg,
-      annotations: [
-        'Architectural high-stand collar capelet in pure gold zari Ashavali brocade',
-        '48-kali graduated knife pleats creating a 9-meter hem circumference (ghera)',
-        'Concealed horsehair crinoline hem band sustaining parabolic structure during movement',
-        'Deep wine silk-velvet waistband with carved brass temple-arch buckle'
-      ]
-    },
-    developmentNotes: [
-      'Ashavali brocade capelet lined with canvas interfacing and tailored with French seams to preserve exterior motif alignment.',
-      '48 individual knife pleats pressed using pressurized steam and anchored along an internal multi-channel grosgrain stay.',
-      'Internal 8-bone structure on inner corset stabilizes heavy capelet weight without pull.'
-    ],
-    garmentDataId: 'ethnic-look-04'
   }
 ];

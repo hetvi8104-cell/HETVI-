@@ -458,7 +458,7 @@ export const RevolvingGarments3D: React.FC<RevolvingGarments3DProps> = ({
       const pallu = new THREE.Mesh(palluGeo, palluMat);
       pallu.position.set(0, 0.4, 0.1);
       group.add(pallu);
-    } else if (lookIndex === 5) {
+    } else {
       // E-03: The Royal Alchemist (Velvet Angrakha & Tiered Farshi)
       const angrakhaGeo = new THREE.ConeGeometry(0.75, 1.2, 16, 8, true);
       const angrakhaMat = new THREE.MeshStandardMaterial({
@@ -485,57 +485,6 @@ export const RevolvingGarments3D: React.FC<RevolvingGarments3DProps> = ({
         tier.position.y = -0.8 - t * 0.35;
         group.add(tier);
       }
-    } else {
-      // E-04: The Ashavali Architect (Architectural Capelet & 48-Kali Pleated Lehenga)
-      // Sculptural High-Stand Ashavali Brocade Capelet
-      const capeGeo = new THREE.ConeGeometry(0.6, 0.42, 24, 2, true);
-      const capeMat = new THREE.MeshStandardMaterial({
-        color: 0xd4af37,
-        roughness: 0.35,
-        metalness: 0.65,
-        wireframe: isWire,
-        side: THREE.DoubleSide
-      });
-      const cape = new THREE.Mesh(capeGeo, capeMat);
-      cape.position.y = 0.55;
-      group.add(cape);
-
-      // Sculpted Wine Corset Band
-      const corsetGeo = new THREE.CylinderGeometry(0.24, 0.22, 0.32, 24);
-      const corsetMat = new THREE.MeshStandardMaterial({
-        color: 0x5a1f2b,
-        roughness: 0.4,
-        metalness: 0.2,
-        wireframe: isWire
-      });
-      const corset = new THREE.Mesh(corsetGeo, corsetMat);
-      corset.position.y = 0.2;
-      group.add(corset);
-
-      // Voluminous 48-Kali Knife-Pleated Lehenga Cone
-      const lehengaGeo = new THREE.ConeGeometry(0.95, 1.5, 48, 8, true);
-      const lehengaMat = new THREE.MeshStandardMaterial({
-        color: 0xd8c7b5,
-        roughness: 0.6,
-        wireframe: isWire,
-        side: THREE.DoubleSide
-      });
-      const lehenga = new THREE.Mesh(lehengaGeo, lehengaMat);
-      lehenga.rotation.x = Math.PI;
-      lehenga.position.y = -0.75;
-      group.add(lehenga);
-
-      // Gold Mukaish & Zari Hem Border Ring
-      const hemRingGeo = new THREE.TorusGeometry(0.92, 0.025, 8, 48);
-      const hemRingMat = new THREE.MeshStandardMaterial({
-        color: 0xd4af37,
-        metalness: 0.75,
-        roughness: 0.25
-      });
-      const hemRing = new THREE.Mesh(hemRingGeo, hemRingMat);
-      hemRing.rotation.x = Math.PI / 2;
-      hemRing.position.y = -1.5;
-      group.add(hemRing);
     }
   };
 

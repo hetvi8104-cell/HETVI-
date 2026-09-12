@@ -554,7 +554,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
     sectionId: 'development',
     sectionTitle: '04 — EXPERIMENTATION & DEVELOPMENT',
     title: 'FINAL DESIGN SELECTION',
-    subtitle: 'The 7 Chosen Garments: 3 Western Statements & 4 Ethnic Masterpieces',
+    subtitle: 'The 6 Chosen Garments: 3 Western Statements & 3 Ethnic Masterpieces',
     bodyText: [
       'Selection criteria: Each garment was chosen for its distinct structural silhouette, thematic cohesion with the color palette, and demonstration of a unique textile craft technique.'
     ],
@@ -564,16 +564,15 @@ export const PORTFOLIO_PAGES: PageContent[] = [
       'LOOK 03 (Western): The Kinetic Tailored Suite (Cutaway Blazer & Culottes)',
       'LOOK 04 (Ethnic): The Heritage Weaver (Contemporary Bandhani Kalidar)',
       'LOOK 05 (Ethnic): The Patola Rebirth (Upcycled Concept Saree & Molded Blouse)',
-      'LOOK 06 (Ethnic): The Royal Alchemist (Velvet Angrakha & Farshi Pajama)',
-      'LOOK 07 (Ethnic): The Ashavali Architect (Brocade Capelet & 48-Kali Pleated Lehenga)'
+      'LOOK 06 (Ethnic): The Royal Alchemist (Velvet Angrakha & Farshi Pajama)'
     ],
     visualSlots: [
       {
         slotId: 'final_selection_board',
         label: 'UPLOAD FINAL DESIGN SELECTION SPREAD',
-        placeholderHint: 'Lineup Board of All 7 Final Designs',
+        placeholderHint: 'Lineup Board of All 6 Final Designs',
         defaultUrl: '/hetvi_look03.jpg',
-        caption: 'The Final Seven Capsule Selection'
+        caption: 'The Final Six Capsule Selection'
       }
     ]
   },
@@ -582,9 +581,9 @@ export const PORTFOLIO_PAGES: PageContent[] = [
     sectionId: 'development',
     sectionTitle: '04 — EXPERIMENTATION & DEVELOPMENT',
     title: 'COLLECTION LINE-UP',
-    subtitle: 'Complete 7-Look Runway Lineup: Cohesion, Rhythm & Silhouette Harmony',
+    subtitle: 'Complete 6-Look Runway Lineup: Cohesion, Rhythm & Silhouette Harmony',
     bodyText: [
-      'The definitive collection lineup presented in rhythmic runway order. Alternating between structured beige wools, liquid burgundy silks, ivory organzas, deep wine velvets, and gold Ashavali brocades.'
+      'The definitive collection lineup presented in rhythmic runway order. Alternating between structured beige wools, liquid burgundy silks, ivory organzas, and deep wine velvets.'
     ],
     visualSlots: [
       {
@@ -592,7 +591,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         label: 'UPLOAD FULL COLLECTION LINEUP ILLUSTRATION',
         placeholderHint: 'High-Res Full Collection Lineup Illustration / Render',
         defaultUrl: '/hetvi_look01.jpg',
-        caption: 'Full 7-Look Runway Lineup: W-01 to E-04'
+        caption: 'Full 6-Look Runway Lineup: W-01 to E-03'
       }
     ]
   },
