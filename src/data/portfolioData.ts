@@ -211,7 +211,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'mood_board_collage_4',
         label: 'UPLOAD MOOD BOARD IMAGE 04',
         placeholderHint: 'Ethnic Craft Atmosphere & Heritage Arch',
-        defaultUrl: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=800&q=85',
+        defaultUrl: '/hetvi_look05_e02.jpg',
         caption: 'Mood Atmosphere: Royal Translucency'
       }
     ]
@@ -799,7 +799,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_01_flat_back',
         label: 'UPLOAD ETHNIC LOOK 01 BACK TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Back View',
-        defaultUrl: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look05_e02.jpg',
         caption: 'CAD Flat: Back View with Potli Placket'
       }
     ]
@@ -820,7 +820,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_02_illustration',
         label: 'UPLOAD ETHNIC LOOK 02 FINAL ILLUSTRATION',
         placeholderHint: 'Full-Length Fashion Illustration for Ethnic Look 02',
-        defaultUrl: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=1200&q=85',
+        defaultUrl: '/hetvi_look05_e02.jpg',
         caption: 'Ethnic Look 02: Final Editorial Fashion Illustration'
       }
     ]
@@ -882,7 +882,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_03_flat_front',
         label: 'UPLOAD ETHNIC LOOK 03 FRONT TECHNICAL FLAT',
         placeholderHint: 'Vector / CAD Flat Drawing - Front View',
-        defaultUrl: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look05_e02.jpg',
         caption: 'CAD Flat: Front View with Angrakha Overlap'
       },
       {
@@ -1053,7 +1053,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'ethnic_photoshoot_hero3',
         label: 'UPLOAD ETHNIC PHOTOSHOOT HERO 03',
         placeholderHint: 'Full-Body Editorial Shoot of Ethnic Look 03 (Velvet Angrakha)',
-        defaultUrl: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=1000&q=85',
+        defaultUrl: '/hetvi_look05_e02.jpg',
         caption: 'E-03: Velvet Angrakha & Farshi'
       }
     ]
