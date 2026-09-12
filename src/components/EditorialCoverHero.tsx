@@ -290,10 +290,7 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
             {/* Monumental Title */}
             <div className="space-y-1">
               <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif-luxury font-bold tracking-tight leading-[0.95] text-[#5C1322] dark:text-[#FAF6F0]">
-                HAUTE
-                <span className="block font-normal italic font-serif-luxury text-[#6E1A29] dark:text-[#E29BA6]">
-                  ARCHITECTURE
-                </span>
+                DUALITY
               </h1>
               <p className="text-[11px] sm:text-xs font-sans-modern tracking-[0.22em] uppercase font-semibold text-[#221B1C]/75 dark:text-[#F3EBE6]/75 pt-2 max-w-xl">
                 Six Curated Master Garments • Western Structural Forms & Ancestral Gujarati Silhouettes
