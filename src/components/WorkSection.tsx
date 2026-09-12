@@ -217,26 +217,11 @@ export const WorkSection: React.FC<WorkSectionProps> = ({ onSelectProject, isDar
                   data-cursor="view"
                   className="relative aspect-[3/4] w-full overflow-hidden bg-black/30 cursor-pointer flex items-center justify-center"
                 >
-                  {project.videoUrl ? (
-                    <video
-                      src={project.videoUrl}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="auto"
-                      className="w-full h-full object-contain bg-black/50 transition-transform duration-700 group-hover:scale-105"
-                      aria-label="3D Video Specimen"
-                    >
-                      <source src={project.videoUrl} type="video/mp4" />
-                    </video>
-                  ) : (
                     <img 
                       src={heroUrl} 
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity pointer-events-none" />
 
                   {/* Top Floating Badge */}

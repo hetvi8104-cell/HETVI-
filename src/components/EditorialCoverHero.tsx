@@ -440,29 +440,13 @@ export const EditorialCoverHero: React.FC<EditorialCoverHeroProps> = ({
 
                 {/* Tall Media Specimen Frame (Video for W-03, High-Res Image for Others) */}
                 <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-black/40 border border-current/5 shadow-inner flex items-center justify-center">
-                  {activePanel.project.videoUrl ? (
-                    <video
-                      key={activePanel.project.videoUrl}
-                      src={activePanel.project.videoUrl}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="auto"
-                      className="w-full h-full object-contain bg-black/90 transition-transform duration-700 group-hover:scale-105"
-                      aria-label="3D Video Specimen"
-                    >
-                      <source src={activePanel.project.videoUrl} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img
-                      key={heroImageUrl}
-                      src={heroImageUrl}
-                      alt={activePanel.project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="eager"
-                    />
-                  )}
+                  <img
+                    key={heroImageUrl}
+                    src={heroImageUrl}
+                    alt={activePanel.project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="eager"
+                  />
 
                   {/* Gradient Vignette */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-60 group-hover:opacity-75 transition-opacity pointer-events-none" />
