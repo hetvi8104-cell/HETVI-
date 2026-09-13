@@ -12,6 +12,8 @@ import look03HeroImg from '../assets/images/hetvi_look03_leather_laceup.jpg';
 import look04E01Img from '../assets/images/hetvi_look04_e01_bandhani.jpg';
 import look05E02Img from '../assets/images/hetvi_look05_e02_lehenga.jpg';
 import look06E03Img from '../assets/images/hetvi_look06_e03_paisley.jpg';
+import e01Gallery1Img from '../assets/images/hetvi_e01_gallery1.jpg';
+import e01Gallery2Img from '../assets/images/hetvi_e01_gallery2.jpg';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
 import look03Gallery1Img from '../assets/images/hetvi_look03_gallery1.jpg';
@@ -241,8 +243,8 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     heroImage: look04E01Img,
     galleryImages: [
       look04E01Img,
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&w=1200&q=85'
+      e01Gallery1Img,
+      e01Gallery2Img
     ],
     concept: 'Reinventing Gujarati Bandhani tie-dye through contemporary geometric chevron grids and multi-layered silk dori cording. The kalidar silhouette features 32 parabolic panels cascading from a corded corset bodice.',
     inspiration: 'Kutch artisan communities, traditional stepwells (vavs) of Gujarat, and fractal geometry.',
