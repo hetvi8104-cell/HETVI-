@@ -266,7 +266,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'research_grid_img1',
         label: 'UPLOAD RESEARCH BOARD IMAGE 1',
         placeholderHint: 'Historical Garment Diagram / Anarkali History',
-        defaultUrl: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80',
+        defaultUrl: '/hetvi_look02_gallery1.jpg',
         caption: 'Archival Research: Historical Drapes'
       },
       {
@@ -519,7 +519,7 @@ export const PORTFOLIO_PAGES: PageContent[] = [
         slotId: 'sketchbook_page_scan',
         label: 'UPLOAD INITIAL SKETCHBOOK SPREAD',
         placeholderHint: 'Handmade Sketchbook Page / Thumbnail Drawings Spread',
-        defaultUrl: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80',
+        defaultUrl: '/hetvi_look02_gallery1.jpg',
         caption: 'Initial Ideation & Gestural Croquis Explorations'
       }
     ]

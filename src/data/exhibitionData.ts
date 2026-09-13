@@ -5,6 +5,9 @@ import look01Gallery1Img from '../assets/images/hetvi_look01_gallery1.jpg';
 import look01Gallery2Img from '../assets/images/hetvi_look01_gallery2.jpg';
 import look01Gallery3Img from '../assets/images/hetvi_look01_gallery3.jpg';
 import look02HeroImg from '../assets/images/hetvi_look02_corduroy_coord.jpg';
+import look02Gallery1Img from '../assets/images/hetvi_look02_gallery1.jpg';
+import look02Gallery2Img from '../assets/images/hetvi_look02_gallery2.jpg';
+import look02Gallery3Img from '../assets/images/hetvi_look02_gallery3.jpg';
 import look03HeroImg from '../assets/images/hetvi_look03_leather_laceup.jpg';
 import look04E01Img from '../assets/images/hetvi_look04_e01_bandhani.jpg';
 import look05E02Img from '../assets/images/hetvi_look05_e02_lehenga.jpg';
@@ -122,8 +125,9 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     heroImage: look02HeroImg,
     galleryImages: [
       look02HeroImg,
-      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85',
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85'
+      look02Gallery1Img,
+      look02Gallery2Img,
+      look02Gallery3Img
     ],
     concept: 'A modernist exploration of gravity and tension. Liquid mulberry silk crepe flows diagonally across a molded hip harness, evoking modernist brutalist facades softened by wind-blown drapery.',
     inspiration: 'Madame Grès classical bias draping, Zaha Hadid parametric contours, and desert sand ripples.',
