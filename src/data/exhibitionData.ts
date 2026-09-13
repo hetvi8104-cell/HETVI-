@@ -14,6 +14,9 @@ import look05E02Img from '../assets/images/hetvi_look05_e02_lehenga.jpg';
 import look06E03Img from '../assets/images/hetvi_look06_e03_paisley.jpg';
 import neoKineticHeroImg from '../assets/images/neo_kinetic_chroma_garment_1787205931733.jpg';
 import neoKineticDetailImg from '../assets/images/neo_kinetic_macro_detail_1787205946987.jpg';
+import look03Gallery1Img from '../assets/images/hetvi_look03_gallery1.jpg';
+import look03Gallery2Img from '../assets/images/hetvi_look03_gallery2.jpg';
+import look03Gallery3Img from '../assets/images/hetvi_look03_gallery3.jpg';
 
 export interface ExhibitionProject {
   id: string;
@@ -180,9 +183,9 @@ export const EXHIBITION_PROJECTS: ExhibitionProject[] = [
     videoUrl: '/hetvi123.mp4',
     galleryImages: [
       look03HeroImg,
-      neoKineticHeroImg,
-      neoKineticDetailImg,
-      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=85'
+      look03Gallery1Img,
+      look03Gallery2Img,
+      look03Gallery3Img
     ],
     concept: 'A cyber-couture digital simulation exploring the dynamic tension between athletic utility and prism-optic chromatic textiles. High-waisted jogger trousers with neon-lime and obsidian chevron racing bands are simulated with high-luster iridescent nylon taffeta physics, paired with a minimalist lavender compression cropped bodice.',
     inspiration: '3D CLO3D cloth dynamics, holographic optics, motorsport racing striping, and retro-futuristic activewear.',
