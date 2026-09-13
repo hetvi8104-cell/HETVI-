@@ -61,10 +61,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ isDarkTheme, onExplo
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif-luxury font-bold tracking-tight leading-tight text-[#5C1322] dark:text-[#FAF6F0]">
-                BRIDGING ANCESTRAL GUJARATI CRAFT WITH SCULPTURAL FUTURISM.
+                WHERE TRADITION MEETS CONTEMPORARY FORM.
               </h2>
               <p className="text-sm sm:text-base font-sans-modern text-[#221B1C]/80 dark:text-[#F3EBE6]/80 leading-relaxed font-light">
-                Hetvi Kapadia is an Indian fashion designer trained at Indus University. Her practice operates at the intersection of Brutalist architectural tailoring, ancestral Gujarati craft revival (Double-Ikat Patan Patola, Bandhani, and Zardozi), and circular zero-waste engineering systems.
+                Hetvi Kapadia is a fashion designer trained at Indus University, with a strong interest in both ethnic and contemporary fashion. Her design approach explores the relationship between traditional craftsmanship and modern aesthetics through silhouettes, textiles, embroidery, draping and experimentation. She enjoys transforming ideas into distinctive garments while continuously exploring new techniques, materials and sustainable approaches to design.
               </p>
             </div>
 
@@ -72,37 +72,37 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ isDarkTheme, onExplo
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-[#D4C5B0]/70 dark:border-white/10">
               <div className="space-y-2">
                 <span className="text-[10px] font-mono font-bold text-[#6E1A29] dark:text-[#D48B96] tracking-widest uppercase">
-                  PILLAR 01
+                  PILLAR 01 — ETHNIC
                 </span>
                 <h4 className="text-base font-serif-luxury font-bold text-[#221B1C] dark:text-[#FAF6F0]">
-                  Architectural Rigor
+                  Rooted in Tradition
                 </h4>
                 <p className="text-xs font-sans-modern text-[#221B1C]/70 dark:text-[#F3EBE6]/70 leading-relaxed">
-                  Deconstructed tailoring, exposed corset boning, internal horsehair canvas, and origami accordion pleating.
+                  Exploring Indian silhouettes, cultural aesthetics, craftsmanship and traditional detailing through a contemporary design perspective.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <span className="text-[10px] font-mono font-bold text-[#6E1A29] dark:text-[#D48B96] tracking-widest uppercase">
-                  PILLAR 02
+                  PILLAR 02 — WESTERN
                 </span>
                 <h4 className="text-base font-serif-luxury font-bold text-[#221B1C] dark:text-[#FAF6F0]">
-                  Craft Ancestry
+                  Contemporary Form
                 </h4>
                 <p className="text-xs font-sans-modern text-[#221B1C]/70 dark:text-[#F3EBE6]/70 leading-relaxed">
-                  Preserving indigenous weaving lineages of Patan and Kutch through contemporary sculptural silhouettes.
+                  Experimenting with modern silhouettes, structure, proportion and styling to create expressive contemporary garments.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <span className="text-[10px] font-mono font-bold text-[#6E1A29] dark:text-[#D48B96] tracking-widest uppercase">
-                  PILLAR 03
+                  PILLAR 03 — TEXTILE
                 </span>
                 <h4 className="text-base font-serif-luxury font-bold text-[#221B1C] dark:text-[#FAF6F0]">
-                  Circular Ecology
+                  Surface & Experimentation
                 </h4>
                 <p className="text-xs font-sans-modern text-[#221B1C]/70 dark:text-[#F3EBE6]/70 leading-relaxed">
-                  100% pre-consumer scrap recovery, water-soluble stabilizer couching, and zero-waste pattern interlocking.
+                  Exploring embroidery, draping, fabric manipulation and textile techniques to develop distinctive surfaces and forms.
                 </p>
               </div>
             </div>
